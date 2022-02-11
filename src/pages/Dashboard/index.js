@@ -4,7 +4,6 @@ import classes from "../../style/dashboard/dashboard.module.scss";
 import ExCard from "../../components/dashboard/ExCard";
 import { makeStyles } from "@material-ui/styles";
 import VideoPlayer from "react-background-video-player";
-import Play from '../../components/dashboard/Play';
 
 
 function index() {
@@ -68,7 +67,6 @@ function index() {
             </div>
           </Box>
         </Container >
-        <Play />
       </Box >
     </>
   )
