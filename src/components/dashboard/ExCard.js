@@ -1,5 +1,10 @@
 import * as React from 'react';
-import { Box, Card, CardActions, CardContent, Button, Typography, Avatar } from '@material-ui/core';
+import { Box, Card, CardActions, CardContent, CardHeader, CardMedia, Button, Typography, Avatar } from '@material-ui/core';
+import { makeStyles } from "@material-ui/styles"
+
+
+
+
 
 const bull = (
     <Box
@@ -10,24 +15,27 @@ const bull = (
     </Box>
 );
 
-export default function ExCard() {
+export default function ExCard({imgsrc,title,content}) {
+
     return (
-        <Card sx={{ minWidth: 300, textAlign: "center" }}>
-            <CardContent>
-                <Box sx={{
-                    display: "inlineBlock",
-                    marginBottom: "20px",
-                    paddingTop: "15px",
-                    border: "1px",
-                    bordeRadius: "100",
-                    backgroundColor: "#ffff",
-                }}>
-                <img src="https://assets.website-files.com/5c7fe7d904beac7c6ce5de13/5c7fe7d904beac68b7e5e010_Icon-camera.png" alt="" class="exercise-intro-icon" />
-                </Box>
-                <Typography variant="body2">
-                    hello
-                </Typography>
-            </CardContent>
-        </Card>
+        <Card sx={{ maxWidth: 345 }}>
+      <CardMedia
+        component="img"
+        height="140"
+        image="https://images.pexels.com/photos/7640/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        alt="green iguana"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+         Exercise
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Lizards are a widespread group of squamate reptiles, with over 6,000
+          species, ranging across all continents except Antarctica
+        </Typography>
+      </CardContent>
+      <CardActions>
+      </CardActions>
+    </Card>
     );
 }

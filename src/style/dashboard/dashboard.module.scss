@@ -20,6 +20,43 @@
         text-transform: uppercase;
       }
     }
+  }
+  .image_section_exercise_library {
+    background-image: url("https://assets.website-files.com/5c7fe7d904beac7c6ce5de13/5c7fe7d904beacb072e5dfdc_Image-section-library2.jpg");    
+    background-position: 100% 50%;
+    background-size: auto 550px;
+  }
+  .image_section_overlay {
+      padding: 45px;
+      background-image: linear-gradient(90deg, #fff 40%, hsla(0, 0%, 100%, 0));
+  }
+  .w_row {
+      margin-left: -10px;
+      margin-right: -10px;
+  }
+  .__container {
+      position: relative;
+  }
+  .section_title {
+      margin-top: 0px;
+      margin-bottom: 70px;
+      font-size: 35px;
+      line-height: 42px;
+      font-weight: 300;
+  }
+  .text_column_left_exercise_intro {
+      padding-right: 35px;
+  }
+  .w_col_6 {
+      width: 50%;
+  }
+  .__p {
+      display: block;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+  }
     @media (max-width: 600px){
       .title {
         font-size: 22px;
@@ -31,7 +68,7 @@
           font-size: 8px;
         }
       }
-    }
+    
   }
 
   /* ===== Add New Patient ===== */
