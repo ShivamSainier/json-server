@@ -1,0 +1,101 @@
+.root__container {
+  .header__container {
+    .title {
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      line-height: 44px;
+    }
+    .date__title {
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      display: flex;
+      flex-direction: column;
+      // line-height: 44px;
+
+      span {
+        font-size: 10px;
+        color: gray;
+        text-transform: uppercase;
+      }
+    }
+    @media (max-width: 600px){
+      .title {
+        font-size: 22px;
+
+      }
+      .date__title {
+        font-size: 14px;
+        span {
+          font-size: 8px;
+        }
+      }
+    }
+  }
+
+  /* ===== Add New Patient ===== */
+
+  .new__patient {
+    max-width: 350px;
+    min-height: 120px;
+    border: 1px dashed rgba(13, 128, 159, 0.5);
+    border-radius: 13px;
+    padding: 8px;
+    .add__new__patient {
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: #0d809f;
+      border-radius: 13px;
+      .add__icon__btn {
+        color: #fff;
+        .add__icon {
+          width: 35px;
+          height: 35px;
+        }
+      }
+      .add__title {
+        font-size: 18px;
+        color: #fff;
+        line-height: 28px;
+        letter-spacing: 0.046em;
+        padding: 10px 0px;
+      }
+    }
+  }
+
+  /* ===== Organizations ===== */
+
+  .org__root {
+    .org__inner__box {
+      // border: 1px solid #e6eaee;
+      // box-shadow: 0px 2px 12px rgba(21, 21, 22, 0.04);
+      // height: 324px;
+      padding: 16px;
+      // border-radius: 13px;
+    }
+    .org__title {
+      font-size: 18px;
+      text-transform: capitalize;
+    }
+    .org__stats__box {
+      display: flex;
+      /* width: 100%; */
+      justify-content: space-between;
+      align-items: center;
+      max-width: 75%;
+    }
+
+    @media (max-width: 600px) {
+      .org__stats__box {
+        flex-direction: column;
+        align-items: flex-start;
+        min-height: 90px;
+      }
+    }
+  }
+
+}

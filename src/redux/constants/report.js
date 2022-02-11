@@ -1,0 +1,16 @@
+export const GET_EMPLOYEE_DETAIL = "GET_EMPLOYEE_DETAIL";
+export const FETCH_VITALS_TABLE_DATA = "FETCH_VITALS_TABLE_DATA";
+export const FETCH_VITALS_GRAPH_DATA = "FETCH_VITALS_GRAPH_DATA";
+export const LAST_RECENT_TESTS = "LAST_RECENT_TESTS";
+export const FETCH_REPORTS = "FETCH_REPORTS";
+export const HAS_ACCESS = "HAS_ACCESS";
+export const LOCATION_CHANGED = "LOCATION_CHANGED";
+
+// Keeping below code because of I think we need this code in future.
+
+// export const FETCH_BP_READING = "FETCH_BP_READING";
+// export const FETCH_TEMPRATURE = "FETCH_TEMPRATURE";
+// export const FETCH_PULSE_READING = "FETCH_PULSE_READING";
+// export const FETCH_GLUCOSE_READING = "FETCH_GLUCOSE_READING";
+// export const FETCH_WEIGHT_READING = "FETCH_WEIGHT_READING";
+// export const FETCH_SPO2_READING = "FETCH_SPO2_READING";
