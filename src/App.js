@@ -2,7 +2,7 @@ import {useRoutes} from "react-router-dom";
 import routes from "./routes";
 import { ThemeProvider, StyledEngineProvider } from '@material-ui/core';
 import theme from "./theme"
-
+import './style.css'
 function App() {
   const content=useRoutes(routes())
   return (

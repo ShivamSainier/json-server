@@ -1,6 +1,7 @@
 import { Children } from "react";
 import { Navigate } from "react-router";
-import DashboardLayout from "./layout/DashboardLayout";
+// import DashboardLayout from "./layout/DashboardLayout";
+import HeaderFooterLayout from "./layout/HeaderFooterLayout/HeaderFooterLayout";
 import Dashboard from "./pages/Dashboard"
 import ExerciseLibrary from "./pages/ExerciseLibrary";
 import Main from "./pages/Main";
@@ -15,7 +16,7 @@ const routes = () => [
     },
     {
         path: "app",
-        element: <DashboardLayout />,
+        element: <HeaderFooterLayout />,
         children: [
             {path:"dashboard",element:<Dashboard />},
             { path: "ExerciseLibrary", element: <ExerciseLibrary /> },
