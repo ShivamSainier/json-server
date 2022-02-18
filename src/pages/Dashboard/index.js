@@ -1,11 +1,66 @@
 import React from 'react';
-import { Button, Container, Typography, Card, CardMedia } from '@material-ui/core';
+import { Button, Container, Typography, Card, CardMedia, CardContent, CardActions } from '@material-ui/core';
 // import classes from "../../style/dashboard/dashboard.module.scss";
 import classes from "./Dashboard.module.css";
 
 function index() {
   return (
     <>
+      <section>
+        <div className={`${classes.videoContainer}`}>
+            <video autoplay="" loop="" className={`${classes.video}`}
+                muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover">
+                <source
+                    src="https://assets.website-files.com/5c7fe7d904beac7c6ce5de13/5ce2bfa37e30fb4b202219fb_physitrack_background_video_new_3-transcode-transcode.mp4"
+                    data-wf-ignore="true"/>
+                <source
+                    src="https://assets.website-files.com/5c7fe7d904beac7c6ce5de13/5ce2bfa37e30fb4b202219fb_physitrack_background_video_new_3-transcode-transcode.webm"
+                    data-wf-ignore="true"/>
+            </video>
+            <div>
+                <h1 className={`${classes.videoHead}`}>The world leader in remote patient engagement.</h1>
+            </div>
+            <div className={`${classes.videoGrid}`}>
+              {
+                [1,2,3].map((d)=>(
+                  <Card className='inline-block' key={d}>
+                    <CardContent>
+                      <div className='d-flex justify-content-center' style={{marginBottom:10}}>
+                        <img src="https://assets.website-files.com/5c7fe7d904beac7c6ce5de13/5ce7980100fd6e4643026134_pt_icon_hospital.svg" alt=""/>
+                      </div>
+                      <Typography className={classes.videoCardTitle} color="textSecondary" gutterBottom>
+                        Emergency maintenance on UK server
+                      </Typography>
+                      <Typography variant="h5" component="h2">
+                        We are currently performing maintenance on our UK database server.
+                        We expect our UK server to be fully operational again shortly.
+                        We apologize for this inconvenience.
+                      </Typography>
+                    </CardContent>
+                    <CardActions className="d-flex justify-content-center">
+                      <Button size="medium" color='main' variant='outlined'>View</Button>
+                    </CardActions>
+                  </Card>
+                ))
+              }
+            </div>
+            <div style={{marginTop:60}}>
+              <div className="d-flex justify-content-center">
+                <Button size="large" color='main' variant='contained'>Try 30 days for free</Button>
+              </div>
+              <div className="d-flex justify-content-center">
+                <div style={{display:'inline-block',margin:'20px'}}>
+                  OR
+                </div>
+              </div>
+              <div className="d-flex justify-content-center">
+                <Button
+                size="large" color='alter' variant='contained'>Try Online Demo Version</Button>
+              </div>
+            </div>
+        </div>
+      </section>
+
       <section>
         <div className={`${classes.sectionHero}`}>
           <h1 className={`${classes.subH1}`}>Exercise library</h1>

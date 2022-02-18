@@ -210,6 +210,16 @@
     font-size: 18px;
     line-height: 27px;
 }
+@media screen and (max-width: 1200px) {
+    .references {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+@media screen and (max-width: 980px) {
+    .references {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
 .clientItem{
     align-self: center;
     justify-self: auto;
@@ -232,4 +242,70 @@
 }
 .logo:hover{
     filter: none !important;
+}
+
+/* VIDEO SECTION */
+.video{
+    background-size: cover;
+    background-position: 50% 50%;
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    right: -100%;
+    bottom: -100%;
+    top: -100%;
+    left: -100%;
+    object-fit: cover;
+    z-index: -100;
+    background-image:url(https://assets.website-files.com/5c7fe7d904beac7c6ce5de13/5ce2bfa37e30fb4b202219fb_physitrack_background_video_new_3-transcode-poster-00001.jpg)
+}
+.videoContainer{
+    position: relative;
+    display: flex;
+    height: 75%;
+    /* min-height: 720px; */
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    overflow: hidden;
+}
+
+.videoGrid {
+    display: grid;
+    align-items: center;
+    grid-auto-columns: 1fr;
+    grid-column-gap: 30px;
+    grid-row-gap: 38px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    font-size: 18px;
+    line-height: 27px;
+}
+@media screen and (max-width: 800px) {
+    .videoGrid {
+        display: block;
+    }
+}
+.videoCardTitle{
+    margin-bottom: 19px;
+    color: #0D809F;
+    font-size: 23px;
+    font-weight: 500;
+    text-align: center;
+    /* text-decoration: underline; */
+}
+.videoHead{
+    margin: 0.67em 0;
+    margin-bottom: 50px;
+    font-weight: 600;
+    text-align: center;
+    font-size: 44px;
+    line-height: 44px;
 }
