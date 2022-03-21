@@ -5,9 +5,9 @@ import { Outlet } from 'react-router-dom';
 export default function HeaderFooterLayout() {
   return (
     <>
-        <Header/>
-        <Outlet/>
-        <Footer/>
+      <Header />
+      <Outlet />
+      <Footer />
     </>
   )
 }

@@ -42,17 +42,17 @@ export const refreshToken = () => async (dispatch, getState) => {
 
 export const loginUser = (data) => async (dispatch, getState) => {
   try {
-    const response = await axios.post(`${ACCOUNT_BASE_URL}/doctor/signin/`, data, {
+    const response = await axios.post(`${ACCOUNT_BASE_URL}/employee/signin/`, data, {
       headers
     });
     if (response.status === 200) {
-      console.log(response);
+      console.log("response", response);
       dispatch(
         loginUserSuccess({
           access_token: response.data.data.access,
           refresh_token: response.data.data.refresh
         })
-      ); 
+      );
       // dispatch(getUser());
     } else {
       dispatch({ type: AUTHENTICATION_FAILED });
@@ -76,9 +76,9 @@ export const resetPassword = (data) => async (dispatch, getState) => {
     if (response.status === 200) {
       toast.success(response.data.message)
       return response;
-    } 
+    }
   } catch (error) {
-    if(error.response){
+    if (error.response) {
       toast.error(error.response.data.message)
     }
     throw error;

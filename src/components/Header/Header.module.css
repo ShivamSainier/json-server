@@ -22,6 +22,20 @@
     justify-content: flex-end;
 }
 
+.logout{
+    margin-right: 0px;
+    margin-left: 30px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #0D809F;
+    line-height: 27px;
+    cursor: pointer;
+    background-color: white;
+    border:none;
+    font-weight: bolder;
+
+}
+
 .link{
     margin-right: 0px;
     margin-left: 30px;

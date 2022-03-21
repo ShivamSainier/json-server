@@ -5,7 +5,7 @@ import {
   REFRESHING_TOKEN,
   REFRESHED_TOKEN,
 } from "../constants/auth";
-import {toast} from 'react-toastify'
+import { toast } from 'react-toastify'
 
 const initialState = {
   refreshingToken: false,
@@ -40,7 +40,7 @@ export default function auth(state = initialState, action) {
         user: action.data
       }
 
-    case AUTHENTICATION_FAILED: 
+    case AUTHENTICATION_FAILED:
       localStorage.removeItem('access_token');
       localStorage.removeItem('refresh_token');
       return {

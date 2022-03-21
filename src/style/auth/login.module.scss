@@ -1,0 +1,14 @@
+.main__container {
+  .left__container {
+    display: flex;
+    align-items: center;
+  }
+  .right__container {
+    .inner__container {
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

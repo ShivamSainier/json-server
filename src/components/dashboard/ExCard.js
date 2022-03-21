@@ -3,22 +3,19 @@ import { Box, Card, CardActions, CardContent, CardHeader, CardMedia, Button, Typ
 import { makeStyles } from "@material-ui/styles"
 
 
-
-
-
 const bull = (
-    <Box
-        component="span"
-        sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-    >
-        •
-    </Box>
+  <Box
+    component="span"
+    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+  >
+    •
+  </Box>
 );
 
-export default function ExCard({imgsrc,title,content}) {
+export default function ExCard({ imgsrc, title, content }) {
 
-    return (
-        <Card sx={{ maxWidth: 345 }}>
+  return (
+    <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
         height="140"
@@ -27,7 +24,7 @@ export default function ExCard({imgsrc,title,content}) {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-         Exercise
+          Exercise
         </Typography>
         <Typography variant="body2" color="text.secondary">
           Lizards are a widespread group of squamate reptiles, with over 6,000
@@ -37,5 +34,5 @@ export default function ExCard({imgsrc,title,content}) {
       <CardActions>
       </CardActions>
     </Card>
-    );
+  );
 }

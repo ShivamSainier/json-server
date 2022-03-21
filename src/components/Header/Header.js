@@ -1,57 +1,65 @@
 import React from 'react'
 import classes from './Header.module.css'
-import {Button} from '@material-ui/core'
+import { Button } from '@material-ui/core'
 import Lock from '@material-ui/icons/Lock'
-import Logo from '../main_logo.png'
+import Logo from '../main_logo.png';
+import { useSelector, useDispatch } from "react-redux";
+import { auth } from "../../redux/actions";
+import { useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
+
+
 export default function Header() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const user = useSelector(state => state.dashboard.userData)
+  console.log("user", user);
+  const handlelogout = () => {
+    dispatch(auth.logout());
+    toast.success("Logout Successfully", { position: toast.POSITION.BOTTOM_RIGHT, autoClose: 2000 });
+    navigate("/login");
+  }
   return (
-    <div className={`${classes.headerWrap}`}>
+    < div className={`${classes.headerWrap}`
+    }>
       <div>
         <div className={`${classes.linkContainer}`}>
-          <div href="https://us.physiapp.com/" className={`${classes.link}`}>Login for patients</div>
-          <div href="https://support.physitrack.com/" className={`${classes.link}`}>Physitrack support</div>
-          <div href="https://www.physitrackgroup.com" className={`${classes.link}`}>Investors</div>
-          <div href="https://physitrack.typeform.com/to/eTP8iI" className={`${classes.link}`}>Contact Sales</div>
+          <div><a href="http://tracelyfedoctorweb.s3-website.ap-south-1.amazonaws.com/app/dashboard" className={`${classes.link}`}>Login for Doctor </a></div>
+          <div><a href="http://tracelyfeorganizationweb.s3-website.ap-south-1.amazonaws.com/app/dashboard" className={`${classes.link}`}>Login For Organisation</a></div>
+          <div><a href="https://support.physitrack.com/" className={`${classes.link}`}>Physitrack support </a></div>
         </div>
       </div>
       <div className='d-flex justify-content-between align-items-center'>
         <div>
-          <img src={Logo} alt="" height={60} width={180}/>
+          <img src={Logo} alt="" height={60} width={180} />
         </div>
         <div className='d-flex'>
           <div className='mr-10'>
             <Button size="large" className={classes.bLink}>
-              Solutions for 
+              Solutions for
             </Button>
             <Button size="large" className={classes.bLink}>
-              Telehealth 
+              Telehealth
             </Button>
             <Button size="large" className={classes.bLink}>
               Excercise library
             </Button>
-            <Button size="large" className={classes.bLink}>
-              Pricing
-            </Button>
           </div>
-          
           <div className='d-flex align-items-center'>
-            <Button
-              variant="outlined" size="large" color="main">
-              Try demo
-            </Button>
           </div>
           <div className='d-flex align-items-center ml-10'>
             <Button
-              size="large" 
+              size="large"
               variant="contained"
               color="main"
-              startIcon={<Lock />}
+              href="http://tracelyfeuserweb.s3-website.ap-south-1.amazonaws.com/app/dashboard"
             >
-              login
+              Login
             </Button>
           </div>
         </div>
       </div>
-    </div>
+    </div >
   )
+
 }
