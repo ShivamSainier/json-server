@@ -4,7 +4,7 @@ name: s3-depl
 on:
   push:
     branches:
-      - main
+      - shivam
 
 jobs:
   build:
