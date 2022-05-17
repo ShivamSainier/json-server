@@ -1,4 +1,4 @@
-.headerWrap{
+.headerWrap {
     position: sticky;
     left: 0%;
     top: 0%;
@@ -8,11 +8,25 @@
     margin: 0px;
     padding: 0px 15px 20px;
     border-top: 4px solid #0D809F;
-    background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #F5F5F7;
+
+    font-family: 'Poppins';
 }
 
-.linkContainer{
+.logo {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 30px;
+    /* identical to box height */
+
+    text-transform: uppercase;
+
+    color: #F57059;
+}
+
+.linkContainer {
     display: flex;
     margin-top: 5px;
     margin-bottom: 15px;
@@ -22,7 +36,7 @@
     justify-content: flex-end;
 }
 
-.logout{
+.logout {
     margin-right: 0px;
     margin-left: 30px;
     font-size: 14px;
@@ -31,12 +45,12 @@
     line-height: 27px;
     cursor: pointer;
     background-color: white;
-    border:none;
+    border: none;
     font-weight: bolder;
 
 }
 
-.link{
+.link {
     margin-right: 0px;
     margin-left: 30px;
     font-size: 14px;
@@ -45,27 +59,54 @@
     line-height: 27px;
     cursor: pointer;
 }
-.link:hover{
+
+.link:hover {
     text-decoration: underline;
 }
 
-.bLink{
-    /* padding-top: 12px;
-    padding-bottom: 12px; */
-    color: #0D809F !important;
-    font-weight: 700 !important;
-    position: relative;
-    display: inline-block;
-    vertical-align: top;
-    text-decoration: none;
-    /* padding: 20px; */
-    text-align: left;
-    /* margin-left: auto;
-    margin-right: auto; */
-    font-size: 18px;
+.kisok {
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
 
-.bLink:hover{
+.team {
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #0A0A0A;
+}
+
+.partner {
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #0A0A0A;
+}
+
+
+
+.bLink:hover {
     color: #F47920 !important;
     cursor: pointer;
 }

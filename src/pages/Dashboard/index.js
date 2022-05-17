@@ -1,9 +1,16 @@
 import React, { useEffect, useRef } from 'react';
-import { Button, Container, Typography, Card, CardMedia, CardContent, CardActions } from '@material-ui/core';
+import { Button, Container, Typography, Card, CardMedia, CardContent, CardActions, Grid } from '@material-ui/core';
 // import classes from "../../style/dashboard/dashboard.module.scss";
 import classes from "./Dashboard.module.css";
 import { connect } from "react-redux";
 import { dashboard } from "../../redux/actions";
+import img from "./img.png";
+import exercise from "./exercise.png";
+import vector from "./Vector.png";
+import ex1 from "./ExercisesImages/ex1.png";
+import ex2 from "./ExercisesImages/ex2.png";
+import ex3 from "./ExercisesImages/ex3.png";
+import allImg from "./ExercisesImages/allImg.png";
 
 function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, cardData, userData, fetchExercisesData, exerciseData }) {
   const Sectionref = useRef(null)
@@ -18,219 +25,441 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
   const goToSection = () => window.scrollTo({ top: Sectionref.current.offsetTop, behavior: "smooth" })
   return (
     <div>
-
       <div>
         <section>
-          <div className={`${classes.videoContainer}`}>
-            <video autoPlay="" loop="" className={`${classes.video}`}
-              muted="" playsInline="" data-wf-ignore="true" data-object-fit="cover">
-              <source
-                src="https://assets.website-files.com/5c7fe7d904beac7c6ce5de13/5ce2bfa37e30fb4b202219fb_physitrack_background_video_new_3-transcode-transcode.mp4"
-                data-wf-ignore="true" />
-              <source
-                src="https://assets.website-files.com/5c7fe7d904beac7c6ce5de13/5ce2bfa37e30fb4b202219fb_physitrack_background_video_new_3-transcode-transcode.webm"
-                data-wf-ignore="true" />
-            </video>
-            <div>
-              <h1 className={`${classes.videoHead}`}>The world leader in remote patient engagement.</h1>
-            </div>
-            <div className={`${classes.videoGrid}`}>
-              {pageData && pageData.data[0].map((item, index) => (
-                <Card className='inline-block' key={index}>
-                  <CardContent>
-                    <div className='d-flex justify-content-center' style={{ marginBottom: 10 }}>
-                      <img src="https://assets.website-files.com/5c7fe7d904beac7c6ce5de13/5ce7980100fd6e4643026134_pt_icon_hospital.svg" alt="" />
-                    </div>
-                    <Typography className={classes.videoCardTitle} color="textSecondary" gutterBottom>
-                      {item.title}
-                    </Typography>
-                    <Typography variant="h5" component="h2">
-                      {item.description}
-                    </Typography>
-                  </CardContent>
-                  <CardActions className="d-flex justify-content-center">
-
-                  </CardActions>
-                </Card>
-              ))
-              }
-            </div>
-            <div style={{ marginTop: 60 }}>
-              <div className="d-flex justify-content-center">
-                <Button size="large" color='main' variant='contained'>Try 30 days for free</Button>
-              </div>
-              <div className="d-flex justify-content-center">
-                <div style={{ display: 'inline-block', margin: '20px' }}>
-                  OR
-                </div>
-              </div>
-              <div className="d-flex justify-content-center">
-                <Button
-                  size="large" color='alter' variant='contained'>Try Online Demo Version</Button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <div className={`${classes.sectionHero}`}>
-            <h1 className={`${classes.subH1}`}>Exercise library</h1>
-          </div>
-          <div className={`${classes.content}`}>
-            <div className={`${classes.contentGrid}`}>
-              <div className={`${classes.innerBlock}`}>
-                <div className={`${classes.innerBlockIcon}`}>
-                  <img height={40}
-                    src="https://assets.website-files.com/5c7fe7d904beac7c6ce5de13/5c7fe7d904beac68b7e5e010_Icon-camera.png"
-                    alt="" className="exercise-intro-icon" />
-                </div>
-                <div><strong>10000+</strong>&nbsp;HD Videos</div>
-              </div>
-              <div className={`${classes.innerBlock}`}>
-                <div className={`${classes.innerBlockIcon}`}>
-                  <img
-                    src="https://assets.website-files.com/5c7fe7d904beac7c6ce5de13/5c7fe7d904beaca84fe5de5b_Icon-volume.png"
-                    alt="" className="exercise-intro-icon" height={40} />
-                </div>
-                <div><strong>Professionally</strong> narrated <br />in 🇬🇧🇪🇸🇳🇱🇩🇪🇫🇷🇵🇱🇧🇷🇮🇹</div>
-              </div>
-              <div className={`${classes.innerBlock}`}>
-                <div className={`${classes.innerBlockIcon}`}>
-                  <img height={40}
-                    src="https://assets.website-files.com/5c7fe7d904beac7c6ce5de13/5c7fe7d904beac1443e5e055_Icon-update.png"
-                    alt="" className="exercise-intro-icon" />
-                </div>
-                <div><strong>100+</strong> new videos each quarter</div>
-              </div>
-              <div className={`${classes.innerBlock}`}>
-                <div className={`${classes.innerBlockIcon}`}>
-                  <img height={40}
-                    src="https://assets.website-files.com/5c7fe7d904beac7c6ce5de13/5c7fe7d904beac68a4e5e02d_Icon-add.png"
-                    alt="" className="exercise-intro-icon" />
-                </div>
-                <div><strong>Add your own</strong> videos and photos</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section ref={Sectionref}>
-          {pageData &&
-            pageData.data[2].map((item, index) => (
-              <div className={`${classes.imageSection}`}>
-                <div className={`${classes.imageOverlay}`}>
-                  <div className={`${classes.container}`}>
-                    <div className={`${classes.row}`}>
-                      <div className={`${classes.textColumn}`}>
-                        <h2 className="section-title column">{item.title} <br /><strong>Expertly created</strong>.</h2>
-                        <p>
-                          {item.content}
-                        </p>
-                      </div>
-                      <div className="w-hidden-small w-hidden-tiny w-col w-col-6"></div>
+          <div className={`${classes.mainSection}`}>
+            <Grid container>
+              <Grid item md={6} sm={6} xs={6}>
+                <div style={{ marginTop: 60 }}>
+                  <div className="d-flex justify-content-center">
+                    <p className={classes.mainTitle}>The Future of Rehabilitation</p>
+                  </div>
+                  <div className="d-flex justify-content-center">
+                    <div style={{ display: 'inline-block', margin: '20px' }}>
+                      <p className={classes.subTitle}>The Path to Recovery Starts Right Here!</p>
                     </div>
                   </div>
+                  <div className="d-flex justify-content-center">
+                    <p className={classes.mainPara}>
+                      TraceLyfe comes with effective and objective rehabilitation programes tailored to needs of our valued customers.
+                    </p>
+                  </div>
+                  <div>
+                    <button className={classes.getStarted}>Get Started</button>
+                  </div>
                 </div>
-              </div>
-
-            ))
-          }
-
-        </section>
-        <section>
-          <div className={`${classes.sectionHero}`}>
-            <h1 className={`${classes.subH1}`}>Sample Exercise</h1>
-            <Button
-              variant="outlined" size="large" color="main">
-              Preview all 10000+ exercises in our demo version
-            </Button>
+              </Grid>
+              <Grid item md={6} sm={6} xs={6}>
+                <div style={{ marginTop: 60 }}>
+                  <div className="d-flex justify-content-center">
+                    <img src={`${img}`} alt="image" height="522.66" width="594.02"></img>
+                  </div>
+                </div>
+              </Grid>
+            </Grid>
           </div>
-          {
-            [1, 2, 3].map((d, index) => (
-              <div key={index}>
-                <div className="spacer"></div>
-                <h4 className={`text-center ${classes.title}`}>Musculoskeletal</h4>
-                <Container className='d-flex justify-content-between w-100'>
-                  {
-                    [4, 5, 6].map((i) => (
-                      <Card key={i} variant="outlined" style={{ display: 'inline-block', width: 300 }}>
-                        <CardMedia
-                          style={{ width: 300, height: 150, boxShadow: '0 0 26px 0 rgb(0 0 0 / 7%)' }}
-                          image="https://assets.website-files.com/5c7fe7d904beac7c6ce5de13/5c7fe7d904beac7000e5e157_2.png"
-                          title="Paella dish"
-                        />
-                        <Typography padding={1} style={{ fontSize: '12px', color: '#aaa', textAlign: 'center' }}>
-                          GHjt ER(90) unsupported with resistance
-                        </Typography>
-                      </Card>
-                    ))
-                  }
-                </Container>
-              </div>
-            ))
-          }
         </section>
-
         <section>
-          <div className={`${classes.scientifically}`}>
-            <div className={`${classes.provenContainer}`}>
+          <div className={`${classes.content}`}>
+            <h5 className={classes.stats}>Some of our great stats</h5>
+            <div>
+              <ul className={classes.ulList}>
+                <li>
+                  <div className={classes.listITems}>
+                    <h4 className={classes.main_heading}>64K</h4>
+                    <p className={classes.main_sub_heading}>Checkups</p>
+                  </div>
+                </li>
+                <li>
+                  <div className={classes.listITems}>
+                    <h4 className={classes.main_heading}>4K</h4>
+                    <p className={classes.main_sub_heading}>Health Employees</p>
+                  </div>
+                </li>
+                <li>
+                  <div className={classes.listITems}>
+                    <h4 className={classes.main_heading}>120K</h4>
+                    <p className={classes.main_sub_heading}>Data Analyzed</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </section>
+        <section className={classes.thirdSection}>
+          <div className={classes.partnerProgram}>
+            <Grid container>
+              <Grid item xs={12} sm={6} md={6}>
+                <div>
+                  <p className={classes.Lorem_Ipsum}>
+                    Lorem Ipsum
+                  </p>
+                  <p style={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "800",
+                    fontSize: "40px",
+                    lineHeight: "48px",
+                    letterSpacing: "-0.03em",
+                    color: "#0A0A0A",
+                    marginBottom: "10px"
+                  }}>
+                    What you get
+                  </p>
+                  <p style={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "400",
+                    fontSize: "20px",
+                    lineHeight: "140%",
+                    letterSpacing: "-0.02em",
+                    color: "#64607D",
+                    width: "430px"
+                  }}>
+                    We want to save your time from constant worry of future health problems by tracking body vitals regularly to check for any abnormalities.
+                  </p>
+                  <div>
+                    <Button variant="contained" sx={{
+                      backgroundColor: "#F57059", color: "white", width: "205px", height: "47px", fontFamily: 'Poppins',
+                      fontStyle: "normal",
+                      fontWeight: "700",
+                      fontSize: "13px",
+                      lineHeight: "30px",
+                      marginTop: "50px"
+                    }}>Join Partner Program</Button>
+                  </div>
+                </div>
+              </Grid>
+              <Grid item xs={12} sm={6} md={6} >
+                <Grid container >
+                  <Grid item sm={6} md={6} xs={6}>
+                    <div>
+                      <h4 className={classes.loermHeading}>Instant Doctor Access</h4>
+                      <p className={classes.loermP}>Regular medical checkups to keep track of body vitals. It helps with preventative healthcare and early detaction of furture health issues.</p>
+                    </div>
+                  </Grid>
+                  <Grid item sm={6} md={6} xs={6}>
+                    <div>
+                      <h4 className={classes.loermHeading}>Exercise on the Go</h4>
+                      <p className={classes.loermP}> Motivating employees to keep within their health goals while monitoring their physical activity and sleep quality.</p>
+                    </div>
+                  </Grid>
+                  <Grid item sm={6} md={6} xs={6}>
+                    <div>
+                      <h4 className={classes.loermHeading}>Dedicated Physiotherapist</h4>
+                      <p className={classes.loermP}>TraceLyfe let’s you manage all the health data all at once. Our central health data app is just a tap away with all the insights and detailed data.</p>
+                    </div>
+                  </Grid>
+                  <Grid item sm={6} md={6} xs={6}>
+                    <div>
+                      <h4 className={classes.loermHeading}>Personalized Packages</h4>
+                      <p className={classes.loermP}>Tracelyfe analyses the data to predict and identify trends and patterns, get actionable insights and control the spread of diseases.</p>
+                    </div>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </div>
+        </section>
+        <section className={classes.exercisesSection}>
+          <div className={classes.exercises}>
+            <Grid container>
+              <Grid item sm={12} md={6} xs={12} >
+                <img width="492" src={`${exercise}`} alt="exercises image" className={classes.exerciseImg}></img>
+                <img width="392" src={`${vector}`} alt="Vector image" className={classes.vectorImg}></img>
+              </Grid>
+              <Grid item sm={5} md={6} xs={12}>
+                <div style={{ marginTop: "10%" }}>
+                  <h3 style={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "600",
+                    fontSize: "32px",
+                    lineHeight: "48px",
+                    letterSpacing: "-0.03em", color: "#0A0A0A"
+                  }}>Why Choose TraceLyfe
+                  </h3>
+                </div>
+                <div style={{ backgroundColor: "#F5F5F7", width: "490px", padding: "15px", borderRadius: "3px", marginTop: "20px" }}>
+                  <h5 style={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "600",
+                    fontSize: "20px",
+                    lineHeight: "30px",
+                    letterSpacing: "-0.03em",
+                    color: "#0A0A0A"
+                  }}>AI Driven Pose Detection</h5>
+                  <p style={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "500",
+                    fontSize: "16px",
+                    lineHeight: "140%",
+                    letterSpacing: "-0.02em",
+                    color: "#64607D",
+                    width: "403px",
+                    paddingTop: "10px"
+                  }}>TraceLyfe uses Artificial Intelligence driven real-time pose detection technique to help you get that tricky exercise right. </p>
+                </div>
+                <ul style={{ listStyleType: "none", marginTop: "20px" }}>
+                  <li className={classes.exerciseList}>Quick Recovery</li>
+                  <li className={classes.exerciseList}>Improve Specialized Facilities</li>
+                  <li className={classes.exerciseList}>Improve Specialized Facilities</li>
+                </ul>
+              </Grid>
+            </Grid>
+          </div>
+        </section>
+        <section className={classes.featured_section}>
+          <div className={classes.featured_packages_section} >
+            <h1 className={classes.featured_packages}>Featured Packages</h1>
+            <div className={classes.cards}>
               <div>
-                {
-                  pageData &&
-                  pageData.data[4].map((item, index) => (<><h2 className={`${classes.head}`}>{item.heading} </h2>
-                    <div className={`${classes.subHead}`}>
-                      {item.content}
-                    </div>
-                  </>))
-                }
-
+                <Card sx={{ width: "388px", height: "233px", background: "#F5F5F7" }}>
+                  <CardContent>
+                    <Typography sx={{
+                      fontFamily: 'Poppins',
+                      fontStyle: "normal",
+                      fontWeight: "700",
+                      fontSize: "24px",
+                      lineHeight: "36px"
+                    }}>
+                      Back Pain Relief
+                    </Typography>
+                    <Typography sx={{
+                      fontFamily: 'Poppins',
+                      fontStyle: "normal",
+                      fontWeight: "400",
+                      fontSize: "18px",
+                      lineHeight: "30px",
+                      letterSpacing: "-0.02em",
+                      color: "#6B6B6B",
+                      width: "325px"
+                    }}>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+                    </Typography>
+                  </CardContent>
+                </Card>
               </div>
-
+              <div>
+                <Card sx={{ width: "388px", height: "233px", background: "#F5F5F7" }}>
+                  <CardContent>
+                    <Typography sx={{
+                      fontFamily: 'Poppins',
+                      fontStyle: "normal",
+                      fontWeight: "700",
+                      fontSize: "24px",
+                      lineHeight: "36px"
+                    }}>
+                      Joint Pain Relief
+                    </Typography>
+                    <Typography sx={{
+                      fontFamily: 'Poppins',
+                      fontStyle: "normal",
+                      fontWeight: "400",
+                      fontSize: "18px",
+                      lineHeight: "30px",
+                      letterSpacing: "-0.02em",
+                      color: "#6B6B6B",
+                      width: "325px"
+                    }}>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </div>
+              <div>
+                <Card sx={{ width: "388px", height: "233px", background: "#F5F5F7" }}>
+                  <CardContent>
+                    <Typography sx={{
+                      fontFamily: 'Poppins',
+                      fontStyle: "normal",
+                      fontWeight: "700",
+                      fontSize: "24px",
+                      lineHeight: "36px"
+                    }}>
+                      Knee Correction
+                    </Typography>
+                    <Typography sx={{
+                      fontFamily: 'Poppins',
+                      fontStyle: "normal",
+                      fontWeight: "400",
+                      fontSize: "18px",
+                      lineHeight: "30px",
+                      letterSpacing: "-0.02em",
+                      color: "#6B6B6B",
+                      width: "325px"
+                    }}>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </div>
         </section>
-        <section>
-          <div className={`${classes.client}`}>
-            <h2 className={`${classes.head}`}>Reference clients</h2>
-            {
-              pageData &&
-              pageData.data[5].map((item, index) => (<> <div className={`${classes.suhHead}`}>
+        <section className={classes.exercisesSection}>
+          <div className={classes.sampleExercises}>
+            <p className={classes.samEx}>Sample Exercises</p>
+          </div>
+          <div className={classes.sampleImages}>
+            <img src={`${allImg}`} alt="exercises image"></img>
+          </div>
+        </section>
+        <section className={classes.refrences}>
+          <div>
+            <h1 style={{
+              fontFamily: 'Poppins',
+              fontStyle: "normal",
+              fontWeight: "600",
+              fontSize: "40px",
+              lineHeight: "48px",
+              textAlign: "center",
+              letterSpacing: "-0.03em",
+              color: "#0A0A0A",
+            }}>Reference Clients</h1>
+          </div>
+          <div className={classes.refrencesList}>
+            <div>
+              <Card sx={{ width: "388px", backgroundColor: "#F5F5F7" }}>
+                <CardMedia
+                  component="img"
+                  height="248px"
+                  image="/static/images/cards/contemplative-reptile.jpg"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="p" component="div" sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "700",
+                    fontSize: "24px",
+                    lineHeight: "36px",
+                    letterSpacing: "0.02em",
+                    color: "#393E45"
+                  }} >
+                    Case Study Heading
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "400",
+                    fontSize: "20px",
+                    lineHeight: "140%",
+                    letterSpacing: "-0.02em",
+                    color: "#64607D"
+                  }}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Typography sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "400",
+                    fontSize: "20px",
 
-                <strong>{item.content}</strong>
-              </div> </>))
-            }
-
-
-            <div className={`${classes.clientsWrapper}`}>
-              <div className={`${classes.references}`}>
-                {
-                  pageData && pageData.data[6].map((k) => (
-                    <div key={k} className={`${classes.clientItem}`}>
-                      <img className={`${classes.logo}`}
-                        src={k.image} alt="" />
-                    </div>
-                  ))
-                }
-                {
-                  [15, 16, 17, 18, 19, 110, 111, 112, 113, 114].map((k) => (
-                    <div className={`${classes.clientItem}`}>
-                      <img className={`${classes.logo}`} src="https://assets.website-files.com/5c7fe7d904beac770ee5de4c/5d149a3b35f95978fa6b90ee_us_americare_physical_therapy.png" alt="AmeriCare Physical Therapy" />
-                    </div>
-                  ))
-                }
-              </div>
+                    letterSpacing: "-0.02em",
+                    color: "#F15D4A"
+                  }}>Read full case study</Typography>
+                </CardActions>
+              </Card>
             </div>
-            <div className="spacer"></div>
-            <div className='d-flex align-items-center'>
-              <Button
-                variant="outlined" size="large" color="main">
-                Case studies
-              </Button>
+            <div>
+              <Card sx={{ width: "388px", backgroundColor: "#F5F5F7" }}>
+                <CardMedia
+                  component="img"
+                  height="248px"
+                  image="/static/images/cards/contemplative-reptile.jpg"
+
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="p" component="p" sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "700",
+                    fontSize: "24px",
+                    lineHeight: "36px",
+                    letterSpacing: "0.02em",
+                    color: "#393E45"
+                  }} >
+                    Case Study Heading
+                  </Typography>
+                  <Typography sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "400",
+                    fontSize: "20px",
+                    lineHeight: "140%",
+                    letterSpacing: "-0.02em",
+                    color: "#64607D"
+                  }}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Typography sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "400",
+                    fontSize: "20px",
+
+                    letterSpacing: "-0.02em",
+                    color: "#F15D4A"
+                  }}>Read full case study</Typography>
+                </CardActions>
+              </Card>
+            </div>
+            <div>
+              <Card sx={{ width: "388px", backgroundColor: "#F5F5F7" }}>
+                <CardMedia
+                  component="img"
+                  height="248px"
+                  image="/static/images/cards/contemplative-reptile.jpg"
+
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="p" component="p" sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "700",
+                    fontSize: "24px",
+                    lineHeight: "36px",
+                    letterSpacing: "0.02em",
+                    color: "#393E45"
+                  }} >
+                    Case Study Heading
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "400",
+                    fontSize: "20px",
+                    lineHeight: "140%",
+                    letterSpacing: "-0.02em",
+                    color: "#64607D"
+                  }}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Typography sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "400",
+                    fontSize: "20px",
+
+                    letterSpacing: "-0.02em",
+                    color: "#F15D4A"
+                  }}>Read full case study</Typography>
+                </CardActions>
+              </Card>
             </div>
           </div>
         </section>
-      </div>
-    </div>
+      </div >
+    </div >
   )
 }
 
@@ -239,7 +468,6 @@ const mapStateToProps = (state) => ({
   cardData: state.dashboard.cardData,
   exerciseData: state.dashboard.exerciseData,
   pageData: state.dashboard.pageData,
-
 })
 
 const mapDispatchToProps = (dispatch) => (

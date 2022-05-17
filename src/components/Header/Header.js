@@ -20,29 +20,21 @@ export default function Header() {
     navigate("/login");
   }
   return (
-    < div className={`${classes.headerWrap}`
-    }>
-      <div>
-        <div className={`${classes.linkContainer}`}>
-          <div><a href="http://tracelyfedoctorweb.s3-website.ap-south-1.amazonaws.com/app/dashboard" className={`${classes.link}`}>Login for Doctor </a></div>
-          <div><a href="http://tracelyfeorganizationweb.s3-website.ap-south-1.amazonaws.com/app/dashboard" className={`${classes.link}`}>Login For Organisation</a></div>
-          <div><a href="https://support.physitrack.com/" className={`${classes.link}`}>Physitrack support </a></div>
-        </div>
-      </div>
+    <div className={`${classes.headerWrap}`}>
       <div className='d-flex justify-content-between align-items-center'>
-        <div>
-          <img src={Logo} alt="" height={60} width={180} />
+        <div className={classes.logo}>
+          TraceLyfe
         </div>
         <div className='d-flex'>
           <div className='mr-10'>
-            <Button size="large" className={classes.bLink}>
-              Solutions for
+            <Button size="small" className={classes.kisok}>
+              What is Kisok
             </Button>
-            <Button size="large" className={classes.bLink}>
-              Telehealth
+            <Button size="small" className={classes.team}>
+              Team
             </Button>
-            <Button size="large" className={classes.bLink}>
-              Excercise library
+            <Button size="small" className={classes.partner}>
+              Partner
             </Button>
           </div>
           <div className='d-flex align-items-center'>
@@ -59,7 +51,7 @@ export default function Header() {
           </div>
         </div>
       </div>
-    </div >
+    </ div >
   )
 
 }
