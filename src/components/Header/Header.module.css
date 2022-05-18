@@ -4,10 +4,10 @@
     top: 0%;
     right: 0%;
     bottom: auto;
-    z-index: 10;
+    z-index: 20;
     margin: 0px;
-    padding: 0px 15px 20px;
-    border-top: 4px solid #0D809F;
+    padding: 20px 15px 20px;
+
     background-color: #F5F5F7;
 
     font-family: 'Poppins';
@@ -20,6 +20,7 @@
     font-size: 20px;
     line-height: 30px;
     /* identical to box height */
+    cursor: pointer;
 
     text-transform: uppercase;
 
@@ -74,6 +75,7 @@
     flex: none;
     order: 0;
     flex-grow: 0;
+    color: #F57059
 }
 
 .team {

@@ -8,11 +8,13 @@ import Main from "./pages/Main";
 import Pricing from "./pages/Pricing";
 import SolutionFor from "./pages/SolutionFor";
 import TeleHealth from "./pages/TeleHealth";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 ////// Login //////////
 import Login from "./pages/auth/Login";
 import ForgotPassword from './pages/auth/ForgotPassword';
 import NotFound from './pages/NotFound';
+
 
 const routes = () => [
     {
@@ -35,7 +37,8 @@ const routes = () => [
             { path: "Main", element: <Main /> },
             { path: "Pricing", element: <Pricing /> },
             { path: "SolutionFor", element: <SolutionFor /> },
-            { path: "TeleHealth", element: <TeleHealth /> }
+            { path: "TeleHealth", element: <TeleHealth /> },
+            { path: "PrivacyPolicy", element: <PrivacyPolicy /> }
         ]
     },
 ]
