@@ -22,13 +22,20 @@ export default function Header() {
   return (
     <div className={`${classes.headerWrap}`}>
       <div className='d-flex justify-content-between align-items-center'>
-        <div className={classes.logo}>
+        <div className={classes.logo} onClick={() => navigate("/app/dashboard")}>
           TraceLyfe
         </div>
         <div className='d-flex'>
           <div className='mr-10'>
             <Button size="small" className={classes.kisok}>
               What is Kisok
+            </Button>
+            <Button
+              size="small"
+              sx={{ color: "#f57059", fontWeight: 600, }}
+              onClick={() => navigate('PrivacyPolicy')}
+            >
+              Our Privacy Policy
             </Button>
             <Button size="small" className={classes.team}>
               Team
@@ -40,14 +47,7 @@ export default function Header() {
           <div className='d-flex align-items-center'>
           </div>
           <div className='d-flex align-items-center ml-10'>
-            <Button
-              size="large"
-              variant="contained"
-              color="main"
-              href="http://tracelyfeuserweb.s3-website.ap-south-1.amazonaws.com/app/dashboard"
-            >
-              Login
-            </Button>
+
           </div>
         </div>
       </div>
