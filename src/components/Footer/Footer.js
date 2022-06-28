@@ -9,7 +9,7 @@ export default function Footer() {
           TraceLyfe
         </div>
         <div className={classes.footerParagraph}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+         
         </div>
         <div>
           <ul style={{ listStyleType: "none", display: "flex", flexDirection: "row", justifyContent: "space-between", marginTop: "20px" }}>
