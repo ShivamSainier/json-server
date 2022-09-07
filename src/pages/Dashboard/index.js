@@ -402,7 +402,7 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
         </section>
         <section className={classes.refrences}>
           <div>
-            <Box sx={{fontSize:{md:'40px',lg:"40px",sm:"40px",xs:"25px"},fontWeight:"bolder",textAlign:"center"}}>Reference Clients</Box>
+            <Box sx={{fontSize:{md:'40px',lg:"40px",sm:"40px",xs:"25px"},fontWeight:"bolder",textAlign:"center",my:"20px"}}>Reference Clients</Box>
           </div>
           <div>
             <Box sx={{ display: 'flex', flexDirection: { md: 'row', lg: 'row', sm: 'row', xs: 'row' }, justifyContent: { md: 'center', lg: 'space-between', sm: 'space-around', xs: 'center' }, alignItems: 'center',gap:2,flexWrap:'wrap'}}>
