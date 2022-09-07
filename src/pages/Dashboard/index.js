@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState,useEffect, useRef } from 'react';
 import { Button, Container, Typography, Card, CardMedia, CardContent, CardActions, Grid } from '@material-ui/core';
 // import classes from "../../style/dashboard/dashboard.module.scss";
 import classes from "./Dashboard.module.css";
@@ -11,367 +11,379 @@ import ex1 from "./ExercisesImages/ex1.png";
 import ex2 from "./ExercisesImages/ex2.png";
 import ex3 from "./ExercisesImages/ex3.png";
 import allImg from "./ExercisesImages/allImg.png";
+import { AiOutlineHeart } from "react-icons/ai";
+import { IoIosPerson } from "react-icons/io";
+import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
+import Divider from '@mui/material/Divider';
+import Box from '@mui/material/Box';
+
+
+
+const getItems = () =>
+  Array(20)
+    .fill(0)
+    .map((_, ind) => ({ id: `element-${ind}` }));
 
 function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, cardData, userData, fetchExercisesData, exerciseData }) {
+  const [items, setItems] = useState(getItems);
+  const [selected, setSelected] = useState([]);
+  const [position, setPosition] = useState(0);
   const Sectionref = useRef(null)
   useEffect(() => {
     fetchUserData();
     getAllCardData();
     fetchExercisesData();
     get_page_data();
-  }, [])
-  console.log("exercise data", exerciseData)
+  }, []);
+  const handleClick =
+    (id) =>
+      ({ getItemById, scrollToItem }) => {
+        const itemSelected = isItemSelected(id);
 
+        setSelected((currentSelected) =>
+          itemSelected
+            ? currentSelected.filter((el) => el !== id)
+            : currentSelected.concat(id)
+        );
+      };
+  const isItemSelected = (id) => !!selected.find((el) => el === id);
   const goToSection = () => window.scrollTo({ top: Sectionref.current.offsetTop, behavior: "smooth" })
   return (
     <div>
       <div>
         <section>
-          <div className={`${classes.mainSection}`}>
-            <Grid container>
-              <Grid item md={6} sm={6} xs={6}>
-                <div style={{ marginTop: 60 }}>
-                  <div className="d-flex justify-content-center">
-                    <p className={classes.mainTitle}>The Future of Rehabilitation</p>
-                  </div>
-                  <div className="d-flex justify-content-center">
-                    <div style={{ display: 'inline-block', margin: '20px' }}>
-                      <p className={classes.subTitle}>The Path to Recovery Starts Right Here!</p>
-                    </div>
-                  </div>
-                  <div className="d-flex justify-content-center">
-                    <p className={classes.mainPara}>
+          <Box style={{backgrundColor:"#F5F5F7",height:{md:"100vh",sm:"90vh"},width:{md:"80%",lg:"80%",sm:"100%",xs:"100%"},marign:"auto",marginTop:"5%"}}>
+            <Box sx={{display:"flex",justifyContent:"space-between",flexWrap:"wrap",width:"80%",margin:"auto"}}>
+              <Box sx={{ display: "flex", flexDirection: "column", gap: 3, }}>
+                  <Box sx={{width:{md:"500px"}}}>
+                    <Typography color="#0A0A0A" sx={{fontSize:{md:"20px",lg:"20px",sm:"10px",xs:"10px"}}}>The Future of Rehabilitation</Typography>
+                  </Box>
+                  <Box>
+                  <Box sx={{ width:'100%'}}>
+                  <Typography color="#0A0A0A" fontWeight="900" sx={{fontSize:{md:"56px",lg:"56px",sm:"36px",xs:"36px"}}}>The Path to
+                      <Box sx={{ display:{md:"block",sm:'inline',sm:"inline"}, color: "#F57059" }}>Recovery Starts </Box>
+                      <Box sx={{display:"block",color:"#F57059"}}> Right Here!</Box>
+                     </Typography>
+                    </Box>
+                  </Box>
+                  <Box sx={{width:{md:"500px"}}}>
+                  <Typography color="#757095" lineHeight="140%" sx={{ fontSize: { md: "20px", lg: "20px", sm: "10px", xs: "10px" } }}>
                       TraceLyfe comes with effective and objective rehabilitation programes tailored to needs of our valued customers.
-                    </p>
+                    </Typography>
+                  </Box>
+                  <Box>
+                  <Button sx={{ fontSize: {md:"14px",lg:"14px",sm:"14px",lg:"14px",xs:"7px"},backgroundColor:"#1B1C31",color:"#fff",height:{lg:"62px",md:"62px",sm:"46px",xs:"36px"},width:{lg:"181px",md:"181px",sm:"180px",xs:"150px"}}}>Get Started</Button>
+                  </Box>
+                
+              </Box>
+              <Box sx={{ display: { md: "none", lg: "block", sm: "none", xs: "none" } }}>
+                <Box>
+                  <div className="justify-content-center">
+                    <img src={img} alt="img" /> 
                   </div>
-                  <div>
-                    <button className={classes.getStarted}>Get Started</button>
-                  </div>
-                </div>
-              </Grid>
-              <Grid item md={6} sm={6} xs={6}>
-                <div style={{ marginTop: 60 }}>
-                  <div className="d-flex justify-content-center">
-                    <img src={`${img}`} alt="image" height="522.66" width="594.02"></img>
-                  </div>
-                </div>
-              </Grid>
-            </Grid>
-          </div>
+                </Box>
+              </Box>
+            </Box>
+          </Box>
         </section>
         <section>
-          <div className={`${classes.content}`}>
-            <h5 className={classes.stats}>Some of our great stats</h5>
-            <div>
-              <ul className={classes.ulList}>
-                <li>
-                  <div className={classes.listITems}>
-                    <h4 className={classes.main_heading}>64K</h4>
-                    <p className={classes.main_sub_heading}>Checkups</p>
-                  </div>
-                </li>
-                <li>
-                  <div className={classes.listITems}>
-                    <h4 className={classes.main_heading}>4K</h4>
-                    <p className={classes.main_sub_heading}>Health Employees</p>
-                  </div>
-                </li>
-                <li>
-                  <div className={classes.listITems}>
-                    <h4 className={classes.main_heading}>120K</h4>
-                    <p className={classes.main_sub_heading}>Data Analyzed</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-
+          <Box sx={{ backgroundColor:"#EEEEF4"}}>
+            <Box sx={{ display: "flex", flexDirection:{md:"row",lg:"row",sm:"row",xs:"row"}, justifyContent: {md:"space-between",lg:"space-between",sm:"space-around",xs:"sapce-around"}, alignItems: "center", width: { lg: "80%", md: "80%",xs:"100%",sm:"80%" },gap:{xs:1}, margin: "auto" ,height:{md:"161px",lg:"161px",sm:"180px",ms:"280px"}}}>
+              <Typography  sx={{ flexGrow: { md: 2, lg: 2, sm: 1, xs: "1" },  alignItems: "center",fontSize:{lg:"32px",md:"32px",sm:"24px",xs:"10px"} }}>Some of our great stats</Typography>
+              <Box sx={{flexGrow: 1 }}>
+                <Box sx={{ display: "flex", flexDirection:{md:"row",lg:"row",sm:"row",xs:"column"}, justifyContent: "space-between", gap:{md:0,lg:0,xs:3,sm:2}  }}>
+                <Box>
+                    <Typography sx={{fontSize:{md:'48px',lg:"48px",sm:"16px",xs:"13px"}}}>64K</Typography>
+                    <Typography sx={{ fontSize: { md: '20px', lg: "20px", sm: "20px", xs: "10px" } }}>Checkups</Typography>
+                </Box>
+                <Box>
+                    <Typography sx={{ fontSize: { md: '48px', lg: "48px", sm: "16px", xs: "13px" } }}>4K</Typography>
+                    <Typography sx={{ fontSize: { md: '20px', lg: "20px", sm: "16px", xs: "10px" } }}>Health Employees</Typography>
+                </Box>
+                <Box>
+                    <Typography sx={{ fontSize: { md: '48px', lg: "48px", sm: "16px", xs: "13px" } }}>120K</Typography>
+                    <Typography sx={{ fontSize: { md: '20px', lg: "20px", sm: "16px", xs: "10px" } }}>Data Analyzed</Typography>
+                </Box>
+              </Box>
+            </Box>
+          </Box>
+          </Box>
         </section>
-        <section className={classes.thirdSection}>
-          <div className={classes.partnerProgram}>
-            <Grid container>
-              <Grid item xs={12} sm={6} md={6}>
-                <div>
+        <section>
+          <Box sx={{backgroundColor:"#fff",height:{sm:"100vh",lg:"100vh",md:"100vh",xs:"80vh"},display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",width:"100%"}}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={10} md={6}>
+                <Box>
                   <p className={classes.Lorem_Ipsum}>
                     Lorem Ipsum
                   </p>
-                  <p style={{
+                  <Typography sx={{
                     fontFamily: 'Poppins',
                     fontStyle: "normal",
                     fontWeight: "800",
-                    fontSize: "40px",
+                    fontSize: {lg:"40px",md:"40px",sm:"20px",xs:"20px"},
                     lineHeight: "48px",
                     letterSpacing: "-0.03em",
                     color: "#0A0A0A",
                     marginBottom: "10px"
                   }}>
                     What you get
-                  </p>
-                  <p style={{
+                  </Typography>
+                  <Typography sx={{
                     fontFamily: 'Poppins',
                     fontStyle: "normal",
                     fontWeight: "400",
-                    fontSize: "20px",
+                    fontSize: { lg: "20px", md: "20px", sm: "10px", xs: "10px" },
                     lineHeight: "140%",
                     letterSpacing: "-0.02em",
                     color: "#64607D",
-                    width: "430px"
+                    
                   }}>
                     We want to save your time from constant worry of future health problems by tracking body vitals regularly to check for any abnormalities.
-                  </p>
-                  <div>
+                  </Typography>
+                  <Box sx={{textAlign:{sm:"left",xs:"center"}}}>
                     <Button variant="contained" sx={{
-                      backgroundColor: "#F57059", color: "white", width: "205px", height: "47px", fontFamily: 'Poppins',
+                      backgroundColor: "#F57059", color: "white", width: "205px", height: {md:"47px",lg:"47px",sm:"23px",xs:"23px"}, fontFamily: 'Poppins',
                       fontStyle: "normal",
                       fontWeight: "700",
-                      fontSize: "13px",
+                      fontSize: {lg:"13px",md:"13px",sm:"7px",xs:"7px"},
                       lineHeight: "30px",
-                      marginTop: "50px"
+                      marginTop: {lg:"50px",md:"50px",xs:"30px",sm:"30px"}
                     }}>Join Partner Program</Button>
-                  </div>
-                </div>
+                  </Box>
+                </Box>
               </Grid>
               <Grid item xs={12} sm={6} md={6} >
-                <Grid container >
+                <Grid container spacing={2} sx={{marginTop:{xs:'30px'}}} >
                   <Grid item sm={6} md={6} xs={6}>
                     <div>
-                      <h4 className={classes.loermHeading}>Instant Doctor Access</h4>
-                      <p className={classes.loermP}>Regular medical checkups to keep track of body vitals. It helps with preventative healthcare and early detaction of furture health issues.</p>
+                      <Typography sx={{ fontSize: { md: "20px", lg: "20px", sm: "10px", xs: "15px", }, fontWeight: { md: "800", sm: "800", xs: "800" } }}>Instant Doctor Access</Typography>
+                      <Typography sx={{ color: "#64607D", lineHeight: {lg:"30px",md:"30px",sm:"15px",xs:"15px"},fontWeight:"500",fontSize:{lg:"16px",md:"16px",sm:"10px ",xs:"10px"}}}>Regular medical checkups to keep track of body vitals. It helps with preventative healthcare and early detaction of furture health issues.</Typography>
                     </div>
                   </Grid>
                   <Grid item sm={6} md={6} xs={6}>
                     <div>
-                      <h4 className={classes.loermHeading}>Exercise on the Go</h4>
-                      <p className={classes.loermP}> Motivating employees to keep within their health goals while monitoring their physical activity and sleep quality.</p>
+                      <Typography sx={{ fontSize: { md: "20px", lg: "20px", sm: "10px", xs: "15px", }, fontWeight: { md: "800", sm: "800", xs: "800" } }}>Exercise on the Go</Typography>
+                      <Typography sx={{ color: "#64607D", lineHeight: { lg: "30px", md: "30px", sm: "15px", xs: "15px" }, fontWeight: "500", fontSize: { lg: "16px", md: "16px", sm: "10px ", xs: "10px" } }}> Motivating employees to keep within their health goals while monitoring their physical activity and sleep quality.</Typography>
                     </div>
                   </Grid>
                   <Grid item sm={6} md={6} xs={6}>
                     <div>
-                      <h4 className={classes.loermHeading}>Dedicated Physiotherapist</h4>
-                      <p className={classes.loermP}>TraceLyfe let’s you manage all the health data all at once. Our central health data app is just a tap away with all the insights and detailed data.</p>
+                      <Typography sx={{ fontSize: { md: "20px", lg: "20px", sm: "15px", xs: "15px", } ,fontWeight: { md: "800", sm: "800", xs: "800" } }}>Dedicated Physiotherapist</Typography>
+                      <Typography sx={{ color: "#64607D", lineHeight: { lg: "30px", md: "30px", sm: "15px", xs: "15px" }, fontWeight: "500", fontSize: { lg: "16px", md: "16px", sm: "10px ", xs: "10px" } }}>TraceLyfe let’s you manage all the health data all at once. Our central health data app is just a tap away with all the insights and detailed data.</Typography>
                     </div>
                   </Grid>
                   <Grid item sm={6} md={6} xs={6}>
                     <div>
-                      <h4 className={classes.loermHeading}>Personalized Packages</h4>
-                      <p className={classes.loermP}>Tracelyfe analyses the data to predict and identify trends and patterns, get actionable insights and control the spread of diseases.</p>
+                      <Typography sx={{ fontSize: { md: "20px", lg: "20px", sm: "15px", xs: "15px", }, fontWeight: { md: "800", sm: "800", xs: "800" } }}>Personalized Packages</Typography>
+                      <Typography sx={{ color: "#64607D", lineHeight: {lg:"30px",md:"30px",sm:"15px",xs:"15px"},fontWeight:"500",fontSize:{lg:"16px",md:"16px",sm:"10px ",xs:"10px"}}}>Tracelyfe analyses the data to predict and identify trends and patterns, get actionable insights and control the spread of diseases.</Typography>
                     </div>
                   </Grid>
                 </Grid>
               </Grid>
             </Grid>
-          </div>
+          </Box>
         </section>
         <section className={classes.exercisesSection}>
           <div className={classes.exercises}>
             <Grid container>
-              <Grid item sm={12} md={6} xs={12} >
-                <img width="492" src={`${exercise}`} alt="exercises image" className={classes.exerciseImg}></img>
-                <img width="392" src={`${vector}`} alt="Vector image" className={classes.vectorImg}></img>
-              </Grid>
               <Grid item sm={5} md={6} xs={12}>
                 <div style={{ marginTop: "10%" }}>
-                  <h3 style={{
+                  <Typography sx={{
                     fontFamily: 'Poppins',
                     fontStyle: "normal",
                     fontWeight: "600",
-                    fontSize: "32px",
-                    lineHeight: "48px",
-                    letterSpacing: "-0.03em", color: "#0A0A0A"
-                  }}>Why Choose TraceLyfe
-                  </h3>
+
+                    fontSize: {sm:"30px",xs:"30px",md:"60px",lg:"60px"},
+                    color:"#222222",
+                    lineHeight: {md:"1.10",lg:"1.15",sm:"2.0",xs:"2.0"},
+                    textTransform: "uppercase",
+                    textShadow: "1px 0px 3px #FF0000",
+                    letterSpacing: "0.05em", color: "#0A0A0A"
+                  }}>Why Choose
+                    <span style={{ display: "block", color: "#F57059", textShadow: "1px 0px 3px #222222", }}>TraceLyfe</span>
+                  </Typography>
                 </div>
-                <div style={{ backgroundColor: "#F5F5F7", width: "490px", padding: "15px", borderRadius: "3px", marginTop: "20px" }}>
-                  <h5 style={{
+                <Box sx={{ width:{md:"490px",lg:"490px",sm:"400px",xs:"200px"}, padding: "15px", }}>
+                  <Typography style={{
                     fontFamily: 'Poppins',
                     fontStyle: "normal",
-                    fontWeight: "600",
-                    fontSize: "20px",
-                    lineHeight: "30px",
-                    letterSpacing: "-0.03em",
-                    color: "#0A0A0A"
-                  }}>AI Driven Pose Detection</h5>
-                  <p style={{
-                    fontFamily: 'Poppins',
-                    fontStyle: "normal",
-                    fontWeight: "500",
-                    fontSize: "16px",
+                    fontWeight: "400",
+                    fontSize: {md:"20px",lg:"20px",sm:"20px",xs:"10px"},
                     lineHeight: "140%",
                     letterSpacing: "-0.02em",
-                    color: "#64607D",
-                    width: "403px",
+                    color: "#444444", 
+                   width:{md:"100%",lg:"100%",xs:'390px'},
+                    textAlign:"left",
                     paddingTop: "10px"
-                  }}>TraceLyfe uses Artificial Intelligence driven real-time pose detection technique to help you get that tricky exercise right. </p>
-                </div>
-                <ul style={{ listStyleType: "none", marginTop: "20px" }}>
-                  <li className={classes.exerciseList}>Quick Recovery</li>
-                  <li className={classes.exerciseList}>Improve Specialized Facilities</li>
-                  <li className={classes.exerciseList}>Improve Specialized Facilities</li>
-                </ul>
+                  }}>TraceLyfe uses Artificial Intelligence driven real-time pose detection technique to help you get that tricky exercise right. </Typography>
+                </Box>
+                <Box sx={{color:"#0A0A0A",display:'flex',flexDirection:{md:"row",lg:"row",sm:"column",xs:"column"},gap:2}}>
+                  <Typography variant="h4" fontWeight="bold">Quick Recovery</Typography>
+                  <Typography variant="h4" fontWeight="bold">Improve Specialized Facilities</Typography>
+                </Box>
               </Grid>
             </Grid>
           </div>
+          
         </section>
-        <section className={classes.featured_section}>
-          <div className={classes.featured_packages_section} >
-            <h1 className={classes.featured_packages}>Featured Packages</h1>
-            <div className={classes.cards}>
-              <div>
-                <Card sx={{ width: "388px", height: "233px", background: "#F5F5F7" }}>
-                  <CardContent>
-                    <Typography sx={{
-                      fontFamily: 'Poppins',
-                      fontStyle: "normal",
-                      fontWeight: "700",
-                      fontSize: "24px",
-                      lineHeight: "36px"
-                    }}>
-                      Back Pain Relief
-                    </Typography>
-                    <Typography sx={{
-                      fontFamily: 'Poppins',
-                      fontStyle: "normal",
-                      fontWeight: "400",
-                      fontSize: "18px",
-                      lineHeight: "30px",
-                      letterSpacing: "-0.02em",
-                      color: "#6B6B6B",
-                      width: "325px"
-                    }}>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </div>
-              <div>
-                <Card sx={{ width: "388px", height: "233px", background: "#F5F5F7" }}>
-                  <CardContent>
-                    <Typography sx={{
-                      fontFamily: 'Poppins',
-                      fontStyle: "normal",
-                      fontWeight: "700",
-                      fontSize: "24px",
-                      lineHeight: "36px"
-                    }}>
-                      Joint Pain Relief
-                    </Typography>
-                    <Typography sx={{
-                      fontFamily: 'Poppins',
-                      fontStyle: "normal",
-                      fontWeight: "400",
-                      fontSize: "18px",
-                      lineHeight: "30px",
-                      letterSpacing: "-0.02em",
-                      color: "#6B6B6B",
-                      width: "325px"
-                    }}>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </div>
-              <div>
-                <Card sx={{ width: "388px", height: "233px", background: "#F5F5F7" }}>
-                  <CardContent>
-                    <Typography sx={{
-                      fontFamily: 'Poppins',
-                      fontStyle: "normal",
-                      fontWeight: "700",
-                      fontSize: "24px",
-                      lineHeight: "36px"
-                    }}>
-                      Knee Correction
-                    </Typography>
-                    <Typography sx={{
-                      fontFamily: 'Poppins',
-                      fontStyle: "normal",
-                      fontWeight: "400",
-                      fontSize: "18px",
-                      lineHeight: "30px",
-                      letterSpacing: "-0.02em",
-                      color: "#6B6B6B",
-                      width: "325px"
-                    }}>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </div>
+        <section>
+          <Box sx={{display:"flex",flexDirection:"row",flexWrap:"wrap",justifyContent:"center",marginTop:{md:"-5%",sm:"-5%",xs:"-10%",lg:"-5%"},gap:{md:0,lg:0,sm:0,xs:2}}}>
+            <div>
+            
+              <Card sx={{ width: { md: "281px", lg: "281px", sm: "281px", xs: "140px" }, height: { md: "274px", lg: "274px", sm: "274px", xs: "137px" }, background: "#F5F5F7", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                <CardContent>
+                  <Typography sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "700",
+                    fontSize: {md:"18px",lg:"18px",sm:"18px",xs:"10px"},
+                    lineHeight: "36px",
+                    textAlign: "center"
+                  }}>
+                    Back Pain Relief
+                  </Typography>
+                  <Typography sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "400",
+                    fontSize: {md:"13px",lg:"13px",sm:"13px",xs:"8px"},
+                    letterSpacing: "-0.02em",
+                    color: "#6B6B6B",
+
+                  }}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+                  </Typography>
+                </CardContent>
+                <CardActions sx={{ justifyContent: "center" }}>
+                  <Box sx={{ border: "1px solid #F57059", color: "#F57059", padding: { md: "10px 20px",lg:"10px 20px",sm:"10px 20px",xs:"5px 10px"},fontSize:{md:"16px",lg:"16px",sm:"16px",xs:"8px"} }}>
+                    Read More
+                  </Box>
+                </CardActions>
+              </Card>
             </div>
-          </div>
-        </section>
-        <section className={classes.exercisesSection}>
+            <div>
+              <Card sx={{ width: { md: "281px", lg: "281px", sm: "281px", xs: "140px" }, height: { md: "274px", lg: "274px", sm: "274px", xs: "137px" }, background: "#F5F5F7", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                <CardContent>
+                  <Typography sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "700",
+                    fontSize: { md: "18px", lg: "18px", sm: "18px", xs: "10px" },
+                    lineHeight: "36px",
+                    textAlign: "center"
+                  }}>
+                    Back Pain Relief
+                  </Typography>
+                  <Typography sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "400",
+                    fontSize: { md: "13px", lg: "13px", sm: "13px", xs: "8px" },
+                    letterSpacing: "-0.02em",
+                    color: "#6B6B6B",
+                  }}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+                  </Typography>
+                </CardContent>
+                <CardActions sx={{ justifyContent: "center" }}>
+                  <Box sx={{ border: "1px solid #F57059", color: "#F57059", padding: { md: "10px 20px",lg:"10px 20px",sm:"10px 20px",xs:"5px 10px"},fontSize:{md:"16px",lg:"16px",sm:"16px",xs:"8px"} }}>
+                    Read More
+                  </Box>
+                </CardActions>
+              </Card>
+            </div>
+            <div>
+              <Card sx={{ width: { md: "281px", lg: "281px", sm: "281px", xs: "140px" }, height: { md: "274px", lg: "274px", sm: "274px", xs: "137px" }, background: "#F5F5F7", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                <CardContent>
+                  <Typography sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "700",
+                    fontSize: { md: "18px", lg: "18px", sm: "18px", xs: "10px" },
+                    lineHeight: "36px",
+                    textAlign: "center"
+                  }}>
+                    Joint Pain Relief
+                  </Typography>
+                  <Typography sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "400",
+                    fontSize: { md: "13px", lg: "13px", sm: "13px", xs: "8px" },
+                    letterSpacing: "-0.02em",
+                    color: "#6B6B6B",
+                  }}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+                  </Typography>
+                </CardContent>
+                <CardActions sx={{ justifyContent: "center" }}>
+                  <Box sx={{ border: "1px solid #F57059", color: "#F57059", padding: { md: "10px 20px",lg:"10px 20px",sm:"10px 20px",xs:"5px 10px"},fontSize:{md:"16px",lg:"16px",sm:"16px",xs:"8px"} }}>
+                    Read More
+                  </Box>
+                </CardActions>
+              </Card>
+            </div>
+            <div>
+              <Card sx={{ width: {md:"281px",lg:"281px",sm:"281px",xs:"140px"}, height: {md:"274px",lg:"274px",sm:"274px",xs:"137px"}, background: "#F5F5F7", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                <CardContent>
+                  <Typography sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "700",
+                    fontSize: { md: "18px", lg: "18px", sm: "18px", xs: "10px" },
+                    lineHeight: "36px",
+                    textAlign: "center"
+                  }}>
+                    Knee Correction
+                  </Typography>
+                  <Typography sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "400",
+                    fontSize: { md: "13px", lg: "13px", sm: "13px", xs: "8px" },
+                    letterSpacing: "-0.02em",
+                    color: "#6B6B6B",
+                  }}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+                  </Typography>
+                </CardContent>
+                <CardActions sx={{ justifyContent: "center" }}>
+                  <Box sx={{ border: "1px solid #F57059", color: "#F57059", padding: { md: "10px 20px",lg:"10px 20px",sm:"10px 20px",xs:"5px 10px"},fontSize:{md:"16px",lg:"16px",sm:"16px",xs:"8px"} }}>
+                    Read More
+                  </Box>
+                </CardActions>
+              </Card>
+              
+            </div>
+          </Box>
+          </section>
+       
+            
+    
+        <section className={classes.exercisesSection_1}>
           <div className={classes.sampleExercises}>
-            <p className={classes.samEx}>Sample Exercises</p>
+            <Divider><Box sx={{fontSize:{md:'40px',lg:"40px",sm:"40px",xs:"25px"},fontWeight:"bolder"}}>Sample Exercises</Box></Divider>
           </div>
+          
+
           <div className={classes.sampleImages}>
-            <img src={`${allImg}`} alt="exercises image"></img>
+            { /* <img src={`${allImg}`} alt="exercises image"></img> */ } 
           </div>
         </section>
         <section className={classes.refrences}>
           <div>
-            <h1 style={{
-              fontFamily: 'Poppins',
-              fontStyle: "normal",
-              fontWeight: "600",
-              fontSize: "40px",
-              lineHeight: "48px",
-              textAlign: "center",
-              letterSpacing: "-0.03em",
-              color: "#0A0A0A",
-            }}>Reference Clients</h1>
+            <Box sx={{fontSize:{md:'40px',lg:"40px",sm:"40px",xs:"25px"},fontWeight:"bolder",textAlign:"center"}}>Reference Clients</Box>
           </div>
-          <div className={classes.refrencesList}>
+          <div>
+            <Box sx={{ display: 'flex', flexDirection: { md: 'row', lg: 'row', sm: 'row', xs: 'row' }, justifyContent: { md: 'center', lg: 'space-between', sm: 'space-around', xs: 'center' }, alignItems: 'center',gap:2,flexWrap:'wrap'}}>
             <div>
-              <Card sx={{ width: "388px", backgroundColor: "#F5F5F7" }}>
-                <CardMedia
+               
+              <Card sx={{ width: {md:'287px',lg:'287px',sm:'287px',xs:'143px'}, height: {lg:"545px",md:"545px",sm:"545px",xs:'270px'}, backgroundColor: "#F5F5F7" }}>
+               <CardMedia
                   component="img"
-                  height="248px"
                   image="/static/images/cards/contemplative-reptile.jpg"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="p" component="div" sx={{
-                    fontFamily: 'Poppins',
-                    fontStyle: "normal",
-                    fontWeight: "700",
-                    fontSize: "24px",
-                    lineHeight: "36px",
-                    letterSpacing: "0.02em",
-                    color: "#393E45"
-                  }} >
-                    Case Study Heading
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary" sx={{
-                    fontFamily: 'Poppins',
-                    fontStyle: "normal",
-                    fontWeight: "400",
-                    fontSize: "20px",
-                    lineHeight: "140%",
-                    letterSpacing: "-0.02em",
-                    color: "#64607D"
-                  }}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Typography sx={{
-                    fontFamily: 'Poppins',
-                    fontStyle: "normal",
-                    fontWeight: "400",
-                    fontSize: "20px",
-
-                    letterSpacing: "-0.02em",
-                    color: "#F15D4A"
-                  }}>Read full case study</Typography>
-                </CardActions>
-              </Card>
-            </div>
-            <div>
-              <Card sx={{ width: "388px", backgroundColor: "#F5F5F7" }}>
-                <CardMedia
-                  component="img"
-                  height="248px"
-                  image="/static/images/cards/contemplative-reptile.jpg"
+                  sx={{height: {md:'287px',lg:'287px',sm:'287px',xs:'143px'}}}
 
                 />
                 <CardContent>
@@ -379,55 +391,18 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
                     fontFamily: 'Poppins',
                     fontStyle: "normal",
                     fontWeight: "700",
-                    fontSize: "24px",
-                    lineHeight: "36px",
-                    letterSpacing: "0.02em",
-                    color: "#393E45"
+                    fontSize: {md:"16px",lg:'16px',sm:'16px',xs:'11px'},
+                    color: "#444444"
                   }} >
-                    Case Study Heading
+                    General Doctor
                   </Typography>
-                  <Typography sx={{
-                    fontFamily: 'Poppins',
-                    fontStyle: "normal",
-                    fontWeight: "400",
-                    fontSize: "20px",
-                    lineHeight: "140%",
-                    letterSpacing: "-0.02em",
-                    color: "#64607D"
-                  }}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Typography sx={{
-                    fontFamily: 'Poppins',
-                    fontStyle: "normal",
-                    fontWeight: "400",
-                    fontSize: "20px",
-
-                    letterSpacing: "-0.02em",
-                    color: "#F15D4A"
-                  }}>Read full case study</Typography>
-                </CardActions>
-              </Card>
-            </div>
-            <div>
-              <Card sx={{ width: "388px", backgroundColor: "#F5F5F7" }}>
-                <CardMedia
-                  component="img"
-                  height="248px"
-                  image="/static/images/cards/contemplative-reptile.jpg"
-
-                />
-                <CardContent>
                   <Typography gutterBottom variant="p" component="p" sx={{
                     fontFamily: 'Poppins',
                     fontStyle: "normal",
-                    fontWeight: "700",
-                    fontSize: "24px",
-                    lineHeight: "36px",
-                    letterSpacing: "0.02em",
-                    color: "#393E45"
+                    fontWeight: "500",
+                      fontSize: { md: "25px", lg: '25px', sm: '25px', xs: '10px' },
+                    lineHeight: { md: "36px", lg: '36px', sm: '36px', xs: '8px' },
+                    color: "#222222"
                   }} >
                     Case Study Heading
                   </Typography>
@@ -435,10 +410,10 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
                     fontFamily: 'Poppins',
                     fontStyle: "normal",
                     fontWeight: "400",
-                    fontSize: "20px",
-                    lineHeight: "140%",
+                    fontSize: { md: "13px", lg: '13px', sm: '13px', xs: '8px' },
+                    lineHeight: { md: "140%", lg: '140%', sm: '140%', xs: '120%' },
                     letterSpacing: "-0.02em",
-                    color: "#64607D"
+                    color: "#444444"
                   }}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.
                   </Typography>
@@ -448,14 +423,171 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
                     fontFamily: 'Poppins',
                     fontStyle: "normal",
                     fontWeight: "400",
-                    fontSize: "20px",
-
+                    fontSize:{ md: "15px", lg: '15px', sm: '15px', xs: '8px' },
                     letterSpacing: "-0.02em",
                     color: "#F15D4A"
                   }}>Read full case study</Typography>
                 </CardActions>
               </Card>
             </div>
+            <div>
+              <Card sx={{ width: {md:'287px',lg:'287px',sm:'287px',xs:'143px'}, height: {lg:"545px",md:"545px",sm:"545px",xs:'270px'}, backgroundColor: "#F5F5F7" }}>
+                <CardMedia
+                  component="img"
+                  image="/static/images/cards/contemplative-reptile.jpg"
+                  sx={{height: {md:'287px',lg:'287px',sm:'287px',xs:'143px'}}}
+
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="p" component="p" sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "700",
+                    fontSize: {md:"16px",lg:'16px',sm:'16px',xs:'11px'},
+                    color: "#444444"
+                  }} >
+                    General Doctor
+                  </Typography>
+                  <Typography gutterBottom variant="p" component="p" sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "500",
+                      fontSize: { md: "25px", lg: '25px', sm: '25px', xs: '10px' },
+                    lineHeight: { md: "36px", lg: '36px', sm: '36px', xs: '8px' },
+                    color: "#222222"
+                  }} >
+                    Case Study Heading
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "400",
+                    fontSize: { md: "13px", lg: '13px', sm: '13px', xs: '8px' },
+                    lineHeight: { md: "140%", lg: '140%', sm: '140%', xs: '120%' },
+                    letterSpacing: "-0.02em",
+                    color: "#444444"
+                  }}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Typography sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "400",
+                    fontSize:{ md: "15px", lg: '15px', sm: '15px', xs: '8px' },
+                    letterSpacing: "-0.02em",
+                    color: "#F15D4A"
+                  }}>Read full case study</Typography>
+                </CardActions>
+              </Card>
+            </div>
+            <div >
+                <Card sx={{ width: { md: '287px', lg: '287px', sm: '287px', xs: '143px' }, height: { lg: "545px", md: "545px", sm: "545px", xs: '270px' }, backgroundColor: "#F5F5F7" }}>
+                 <CardMedia
+                  component="img"
+                  image="/static/images/cards/contemplative-reptile.jpg"
+                  sx={{height: {md:'287px',lg:'287px',sm:'287px',xs:'143px'}}}
+
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="p" component="p" sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "700",
+                    fontSize: {md:"16px",lg:'16px',sm:'16px',xs:'11px'},
+                    color: "#444444"
+                  }} >
+                    General Doctor
+                  </Typography>
+                  <Typography gutterBottom variant="p" component="p" sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "500",
+                      fontSize: { md: "25px", lg: '25px', sm: '25px', xs: '10px' },
+                    lineHeight: { md: "36px", lg: '36px', sm: '36px', xs: '8px' },
+                    color: "#222222"
+                  }} >
+                    Case Study Heading
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "400",
+                    fontSize: { md: "13px", lg: '13px', sm: '13px', xs: '8px' },
+                    lineHeight: { md: "140%", lg: '140%', sm: '140%', xs: '120%' },
+                    letterSpacing: "-0.02em",
+                    color: "#444444"
+                  }}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Typography sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "400",
+                    fontSize:{ md: "15px", lg: '15px', sm: '15px', xs: '8px' },
+                    letterSpacing: "-0.02em",
+                    color: "#F15D4A"
+                  }}>Read full case study</Typography>
+                </CardActions>
+              </Card>
+                
+            </div>
+            <div>
+              <Card sx={{ width: {md:'287px',lg:'287px',sm:'287px',xs:'143px'}, height: {lg:"545px",md:"545px",sm:"545px",xs:'270px'}, backgroundColor: "#F5F5F7" }}>
+                <CardMedia
+                  component="img"
+                  image="/static/images/cards/contemplative-reptile.jpg"
+                  sx={{height: {md:'287px',lg:'287px',sm:'287px',xs:'143px'}}}
+
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="p" component="p" sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "700",
+                    fontSize: {md:"16px",lg:'16px',sm:'16px',xs:'11px'},
+                    color: "#444444"
+                  }} >
+                    General Doctor
+                  </Typography>
+                  <Typography gutterBottom variant="p" component="p" sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "500",
+                      fontSize: { md: "25px", lg: '25px', sm: '25px', xs: '10px' },
+                    lineHeight: { md: "36px", lg: '36px', sm: '36px', xs: '8px' },
+                    color: "#222222"
+                  }} >
+                    Case Study Heading
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "400",
+                    fontSize: { md: "13px", lg: '13px', sm: '13px', xs: '8px' },
+                    lineHeight: { md: "140%", lg: '140%', sm: '140%', xs: '120%' },
+                    letterSpacing: "-0.02em",
+                    color: "#444444"
+                  }}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Typography sx={{
+                    fontFamily: 'Poppins',
+                    fontStyle: "normal",
+                    fontWeight: "400",
+                    fontSize:{ md: "15px", lg: '15px', sm: '15px', xs: '8px' },
+                    letterSpacing: "-0.02em",
+                    color: "#F15D4A"
+                  }}>Read full case study</Typography>
+                </CardActions>
+              </Card>
+            </div>
+          </Box>
           </div>
         </section>
       </div >

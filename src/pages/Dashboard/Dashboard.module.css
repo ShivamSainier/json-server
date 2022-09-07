@@ -11,7 +11,7 @@
 
 .mainSection {
     background-color: "#F5F5F7";
-    min-height: 90vh;
+    min-height: 100vh;
     width: 80%;
     margin: auto;
 
@@ -203,9 +203,6 @@
     left: 120px;
 }
 
-.exercisesSection {
-    background-color: #FFFFFF;
-}
 
 .featured_section {
     background-color: #FFFFFF;
@@ -217,14 +214,13 @@
     background-color: #FFFFFF;
     width: 90%;
     margin: auto;
-
 }
 
 .cards {
-    margin-top: 40px;
+    margin-top: -60px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between
+    justify-content: center;
 }
 
 .featured_packages {
@@ -243,8 +239,15 @@
 }
 
 .exercises {
-    width: 90%;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width:80%;
+    margin:auto;
+    justify-content: center;
+    align-items: flex-end;
+    backdrop-filter: blur(5px);
+    height: 80vh;
+    
 }
 
 .Lorem_Ipsum {
@@ -279,6 +282,7 @@
     letter-spacing: -0.03em;
     color: #0A0A0A;
 }
+
 
 .loermP {
     font-family: 'Poppins';
@@ -318,12 +322,21 @@
 }
 
 .exercisesSection {
-    background-color: #FFFFFF;
+    background:url("exercises.jpg");
+    background-repeat: no-repeat;
+   height: 90vh;
+   background-attachment: fixed;
+}
+.exercisesSection_1{
+    margin-top: 10%;
+    background-color: #F4F6F8;
+    background-repeat: no-repeat;
 }
 
 
+
 .sampleExercises {
-    padding-top: 10%;
+   
     width: 90%;
     margin: auto;
 
@@ -331,8 +344,10 @@
 }
 
 .refrences {
-    background-color: #FFFFFF;
-    padding-top: 10%;
+    background-color: #F57059;
+    padding-top:5%;
+    margin-top: 5%;
+
 }
 
 .sampleImages {
@@ -403,7 +418,7 @@
 }
 
 .refrencesList {
-    padding-top: 50px;
+    padding-top: 5%;
     width: 80%;
     margin: auto;
     display: flex;
