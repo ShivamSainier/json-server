@@ -12,7 +12,7 @@ export default function Footer() {
          
         </div>
         <div>
-          <ul style={{ listStyleType: "none", display: "flex", flexDirection: "row", justifyContent: "space-between", marginTop: "20px" }}>
+          <ul style={{ listStyleType: "none", display: "flex",flexWrap:'wrap', flexDirection: "row", justifyContent: "center", marginTop: "20px" }}>
             <li style={{ paddingRight: "15px" }}>Campaigns</li>
             <li style={{ paddingRight: "15px" }}>Email Marketing</li>
             <li style={{ paddingRight: "15px" }}>Branding</li>

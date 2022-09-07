@@ -16,8 +16,28 @@ import { IoIosPerson } from "react-icons/io";
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
+import { motion }  from "framer-motion";
 
 
+const container = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const item = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1
+  }
+};
 
 const getItems = () =>
   Array(20)
@@ -28,6 +48,8 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
   const [items, setItems] = useState(getItems);
   const [selected, setSelected] = useState([]);
   const [position, setPosition] = useState(0);
+
+
   const Sectionref = useRef(null)
   useEffect(() => {
     fetchUserData();
@@ -88,10 +110,10 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
         </section>
         <section>
           <Box sx={{ backgroundColor:"#EEEEF4"}}>
-            <Box sx={{ display: "flex", flexDirection:{md:"row",lg:"row",sm:"row",xs:"row"}, justifyContent: {md:"space-between",lg:"space-between",sm:"space-around",xs:"sapce-around"}, alignItems: "center", width: { lg: "80%", md: "80%",xs:"100%",sm:"80%" },gap:{xs:1}, margin: "auto" ,height:{md:"161px",lg:"161px",sm:"180px",ms:"280px"}}}>
+            <Box sx={{ display: "flex", flexDirection:{md:"row",lg:"row",sm:"row",xs:"row"}, justifyContent: {md:"space-between",lg:"space-between",sm:"space-around",xs:"sapce-around"}, alignItems: "center", width: { lg: "80%", md: "80%",xs:"80%",sm:"80%" },gap:{xs:0}, margin: "auto" ,height:{md:"161px",lg:"161px",sm:"180px",xs:"280px"}}} margin="auto">
               <Typography  sx={{ flexGrow: { md: 2, lg: 2, sm: 1, xs: "1" },  alignItems: "center",fontSize:{lg:"32px",md:"32px",sm:"20px",xs:"10px"} }}>Some of our great stats</Typography>
-              <Box sx={{flexGrow: 1 }}>
-                <Box sx={{ display: "flex", flexDirection:{md:"row",lg:"row",sm:"row",xs:"column"}, justifyContent: "space-between", gap:{md:0,lg:0,xs:3,sm:2}  }}>
+              <Box sx={{flexGrow: 1 }} >
+                <Box sx={{ display: "flex", flexDirection: { md: "row", lg: "row", sm: "row", xs: "column" }, justifyContent: "space-between", gap: { md: 0, lg: 0, xs: 3, sm: 2 } }} textAlign="center">
                 <Box>
                     <Typography sx={{fontSize:{md:'48px',lg:"48px",sm:"16px",xs:"13px"}}}>64K</Typography>
                     <Typography sx={{ fontSize: { md: '20px', lg: "20px", sm: "20px", xs: "10px" } }}>Checkups</Typography>
@@ -111,7 +133,7 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
         </section>
         <section>
           <Box sx={{backgroundColor:"#fff",height:{sm:"100vh",lg:"100vh",md:"100vh",xs:"80vh"},display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",width:"100%"}}>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} width="80%" margin="auto">
               <Grid item xs={12} sm={10} md={6}>
                 <Box>
                   <p className={classes.Lorem_Ipsum}>
@@ -229,8 +251,13 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
         </section>
         <section>
           <Box sx={{display:"flex",flexDirection:"row",flexWrap:"wrap",justifyContent:"center",marginTop:{md:"-5%",sm:"-5%",xs:"-10%",lg:"-5%"},gap:{md:0,lg:0,sm:0,xs:2}}}>
+            <motion.div
+              className="container"
+              variants={container}
+              initial="hidden"
+              animate="visible">
             <div>
-            
+                <motion.div variants={item}>
               <Card sx={{ width: { md: "281px", lg: "281px", sm: "281px", xs: "140px" }, height: { md: "274px", lg: "274px", sm: "274px", xs: "137px" }, background: "#F5F5F7", display: "flex", flexDirection: "column", justifyContent: "center" }}>
                 <CardContent>
                   <Typography sx={{
@@ -261,6 +288,7 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
                   </Box>
                 </CardActions>
               </Card>
+                </motion.div>
             </div>
             <div>
               <Card sx={{ width: { md: "281px", lg: "281px", sm: "281px", xs: "140px" }, height: { md: "274px", lg: "274px", sm: "274px", xs: "137px" }, background: "#F5F5F7", display: "flex", flexDirection: "column", justifyContent: "center" }}>
@@ -356,6 +384,7 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
               </Card>
               
             </div>
+            </motion.div>
           </Box>
           </section>
        
