@@ -89,7 +89,7 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
         <section>
           <Box sx={{ backgroundColor:"#EEEEF4"}}>
             <Box sx={{ display: "flex", flexDirection:{md:"row",lg:"row",sm:"row",xs:"row"}, justifyContent: {md:"space-between",lg:"space-between",sm:"space-around",xs:"sapce-around"}, alignItems: "center", width: { lg: "80%", md: "80%",xs:"100%",sm:"80%" },gap:{xs:1}, margin: "auto" ,height:{md:"161px",lg:"161px",sm:"180px",ms:"280px"}}}>
-              <Typography  sx={{ flexGrow: { md: 2, lg: 2, sm: 1, xs: "1" },  alignItems: "center",fontSize:{lg:"32px",md:"32px",sm:"24px",xs:"10px"} }}>Some of our great stats</Typography>
+              <Typography  sx={{ flexGrow: { md: 2, lg: 2, sm: 1, xs: "1" },  alignItems: "center",fontSize:{lg:"32px",md:"32px",sm:"20px",xs:"10px"} }}>Some of our great stats</Typography>
               <Box sx={{flexGrow: 1 }}>
                 <Box sx={{ display: "flex", flexDirection:{md:"row",lg:"row",sm:"row",xs:"column"}, justifyContent: "space-between", gap:{md:0,lg:0,xs:3,sm:2}  }}>
                 <Box>
