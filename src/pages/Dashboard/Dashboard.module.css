@@ -267,7 +267,10 @@
     line-height: 24px;
     text-transform: uppercase;
     color: #F57059;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    border-bottom: 2px inset #F57059;
+    display:inline-block;
+    padding-bottom: 10px;
 }
 
 .exerciseList {

@@ -111,19 +111,19 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
         <section>
           <Box sx={{ backgroundColor:"#EEEEF4"}}>
             <Box sx={{ display: "flex", flexDirection:{md:"row",lg:"row",sm:"row",xs:"row"}, justifyContent: {md:"space-between",lg:"space-between",sm:"space-around",xs:"sapce-around"}, alignItems: "center", width: { lg: "80%", md: "80%",xs:"80%",sm:"80%" },gap:{xs:0}, margin: "auto" ,height:{md:"161px",lg:"161px",sm:"180px",xs:"280px"}}} margin="auto">
-              <Typography  sx={{ flexGrow: { md: 2, lg: 2, sm: 1, xs: "1" },  alignItems: "center",fontSize:{lg:"32px",md:"32px",sm:"20px",xs:"10px"} }}>Some of our great stats</Typography>
+              <Typography sx={{ flexGrow: { md: 2, lg: 2, sm: 1, xs: "1" }, alignItems: "center", fontSize: { lg: "32px", md: "32px", sm: "20px", xs: "10px" }, fontWeight: "550", textShadow: "0px 1px 0px #454545" }}>Some of our great stats</Typography>
               <Box sx={{flexGrow: 1 }} >
-                <Box sx={{ display: "flex", flexDirection: { md: "row", lg: "row", sm: "row", xs: "column" }, justifyContent: "space-between", gap: { md: 0, lg: 0, xs: 3, sm: 2 } }} textAlign="center">
+                <Box sx={{ display: "flex", textShadow:"0px 1px 0px #454545" ,flexDirection: { md: "row", lg: "row", sm: "row", xs: "column" }, justifyContent: "space-between", gap: { md: 0, lg: 0, xs: 3, sm: 2 } }} textAlign="center" textTransform="upperCase" >
                 <Box>
-                    <Typography sx={{fontSize:{md:'48px',lg:"48px",sm:"16px",xs:"13px"}}}>64K</Typography>
+                    <Typography sx={{fontSize:{md:'48px',lg:"48px",sm:"16px",xs:"13px"},fontWeight:"800"}}>64K</Typography>
                     <Typography sx={{ fontSize: { md: '20px', lg: "20px", sm: "20px", xs: "10px" } }}>Checkups</Typography>
                 </Box>
                 <Box>
-                    <Typography sx={{ fontSize: { md: '48px', lg: "48px", sm: "16px", xs: "13px" } }}>4K</Typography>
+                    <Typography sx={{ fontSize: { md: '48px', lg: "48px", sm: "16px", xs: "13px" }, fontWeight: "800" }}>4K</Typography>
                     <Typography sx={{ fontSize: { md: '20px', lg: "20px", sm: "16px", xs: "10px" } }}>Health Employees</Typography>
                 </Box>
                 <Box>
-                    <Typography sx={{ fontSize: { md: '48px', lg: "48px", sm: "16px", xs: "13px" } }}>120K</Typography>
+                    <Typography sx={{ fontSize: { md: '48px', lg: "48px", sm: "16px", xs: "13px" }, fontWeight: "800" }}>120K</Typography>
                     <Typography sx={{ fontSize: { md: '20px', lg: "20px", sm: "16px", xs: "10px" } }}>Data Analyzed</Typography>
                 </Box>
               </Box>
@@ -250,12 +250,8 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
           
         </section>
         <section>
-          <Box sx={{display:"flex",flexDirection:"row",flexWrap:"wrap",justifyContent:"center",marginTop:{md:"-5%",sm:"-5%",xs:"-10%",lg:"-5%"},gap:{md:0,lg:0,sm:0,xs:2}}}>
-            <motion.div
-              className="container"
-              variants={container}
-              initial="hidden"
-              animate="visible">
+          <Box sx={{display:"flex",flexDirection:"row",flexWrap:"wrap",justifyContent:"center",marginTop:{md:"-4%",sm:"-5%",xs:"-10%",lg:"-4%"},gap:{md:0,lg:0,sm:0,xs:2}}}>
+            
             <div>
                 <motion.div variants={item}>
               <Card sx={{ width: { md: "281px", lg: "281px", sm: "281px", xs: "140px" }, height: { md: "274px", lg: "274px", sm: "274px", xs: "137px" }, background: "#F5F5F7", display: "flex", flexDirection: "column", justifyContent: "center" }}>
@@ -384,7 +380,7 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
               </Card>
               
             </div>
-            </motion.div>
+            
           </Box>
           </section>
        
@@ -405,7 +401,7 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
             <Box sx={{fontSize:{md:'40px',lg:"40px",sm:"40px",xs:"25px"},fontWeight:"bolder",textAlign:"center",my:"20px"}}>Reference Clients</Box>
           </div>
           <div>
-            <Box sx={{ display: 'flex', flexDirection: { md: 'row', lg: 'row', sm: 'row', xs: 'row' }, justifyContent: { md: 'center', lg: 'space-between', sm: 'space-around', xs: 'center' }, alignItems: 'center',gap:2,flexWrap:'wrap'}}>
+            <Box sx={{ display: 'flex', width:{md:"80%",lg:"80%"},margin:"auto",flexDirection: { md: 'row', lg: 'row', sm: 'row', xs: 'row' }, justifyContent: { md: 'center', lg: 'space-between', sm: 'space-around', xs: 'center' }, alignItems: 'center',gap:2,flexWrap:'wrap'}}>
             <div>
                
               <Card sx={{ width: {md:'287px',lg:'287px',sm:'287px',xs:'143px'}, height: {lg:"545px",md:"545px",sm:"545px",xs:'270px'}, backgroundColor: "#F5F5F7" }}>
