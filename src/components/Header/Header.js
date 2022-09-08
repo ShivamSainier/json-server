@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from './Header.module.css'
-import { Button } from '@material-ui/core'
+import { Button,Box,Typography } from '@material-ui/core'
 import Lock from '@material-ui/icons/Lock'
 import Logo from '../main_logo.png';
 import { useSelector, useDispatch } from "react-redux";
@@ -20,38 +20,27 @@ export default function Header() {
     navigate("/login");
   }
   return (
-    <div className={`${classes.headerWrap}`}>
-      <div className='d-flex justify-content-between align-items-center'>
-        <div className={classes.logo} onClick={() => navigate("/app/dashboard")}>
+    <Box sx={{width:"100%"}}>
+      <Box sx={{display:"flex",flexDirection:"row",justifyContent:"space-between",width:"80%",margin:"auto",padding:"10px"}}>
+      <Box sx={{ fontStyle: "normal", fontSize: { md: "20px", lg: "20px", sm: "20px", xs: "10px" }, lineHeight: { md: "30px", lg: "30px", sm: "30px", xs: "15px" }, cursor: "pointer", color: "#F57059", fontWeight:"800",flex:{md:3,lg:3,sm:3,xs:1}}} onClick={() => navigate("/app/dashboard")}>
           TraceLyfe
-        </div>
-        <div className='d-flex'>
-          <div className='mr-10'>
-            <Button size="small" className={classes.kisok}>
-              What is Kisok
-            </Button>
-            <Button
-              size="small"
-              sx={{ color: "#f57059", fontWeight: 600, }}
-              onClick={() => navigate('PrivacyPolicy')}
-            >
-              Our Privacy Policy
-            </Button>
-            <Button size="small" className={classes.team}>
-              Team
-            </Button>
-            <Button size="small" className={classes.partner}>
-              Partner
-            </Button>
-          </div>
-          <div className='d-flex align-items-center'>
-          </div>
-          <div className='d-flex align-items-center ml-10'>
+      </Box>
+        <Box sx={{ display: "flex", flexDirection: "row", fontSize: { md: "20px", lg: "20px", sm: "20px", xs: "10px" }, lineHeight: { md: "30px", lg: "30px", sm: "30px", xs: "15px" },flex:{md:2,lg:2,sm:2,xs:2} }}>
+          <Box sx={{ fontSize: { md: "20px", lg: "20px", sm: "20px", xs: "10px" }, fontWeight:"800",color:"#F57059",flex:{md:2,lg:2,sm:2,xs:3} }}>
+            What is Kisok
+        </Box>
+        <Box
 
-          </div>
-        </div>
-      </div>
-    </ div >
+            sx={{ color: "#f57059", fontWeight: 600, fontSize: { md: "20px", lg: "20px", sm: "20px", xs: "10px" }, flex:{md: 2,lg: 2,sm: 2,xs: 3}, color:"#F57059"}}
+          onClick={() => navigate('PrivacyPolicy')}>
+          Our Privacy Policy
+        </Box>
+          <Box sx={{ color: "#f57059", fontWeight: 600, fontSize: { md: "20px", lg: "20px", sm: "20px", xs: "10px" }, flex:{md: 1,lg: 1,sm: 2,xs: 1} }}>
+          Team
+        </Box>
+        </Box>
+      </Box>
+    </ Box >
   )
 
 }

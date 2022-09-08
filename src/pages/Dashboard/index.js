@@ -5,19 +5,34 @@ import classes from "./Dashboard.module.css";
 import { connect } from "react-redux";
 import { dashboard } from "../../redux/actions";
 import img from "./img.png";
-import exercise from "./exercise.png";
 import vector from "./Vector.png";
-import ex1 from "./ExercisesImages/ex1.png";
-import ex2 from "./ExercisesImages/ex2.png";
-import ex3 from "./ExercisesImages/ex3.png";
-import allImg from "./ExercisesImages/allImg.png";
 import { AiOutlineHeart } from "react-icons/ai";
 import { IoIosPerson } from "react-icons/io";
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
-import { motion }  from "framer-motion";
+import { motion } from "framer-motion";
+import exercise1 from "./ExercisesImages/exercise1.png";
+import exercise2 from "./ExercisesImages/exercise2.png";
+import exercise3 from "./ExercisesImages/exercise3.png";
+import exercise4 from "./ExercisesImages/exercise4.png";
+import exercise5 from "./ExercisesImages/exercise5.png";
+import exercise6 from "./ExercisesImages/exercise6.png";
+import exercise7 from "./ExercisesImages/exercise7.png";
+import exercise8 from "./ExercisesImages/exercise8.png";
 
+
+const exercises_images = [{
+  name: exercise1,
+  name: exercise2,
+  name: exercise3,
+  name: exercise4,
+  name: exercise5,
+  name: exercise6,
+  name: exercise7,
+  name: exercise8,
+}
+]
 
 const container = {
   hidden: { opacity: 1, scale: 0 },
@@ -44,11 +59,37 @@ const getItems = () =>
     .fill(0)
     .map((_, ind) => ({ id: `element-${ind}` }));
 
+export const Menu = (list) => list.map(el => {
+  console.log("list", list);
+  return (
+    <div>{el.name}</div>
+  );
+});
+
+
 function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, cardData, userData, fetchExercisesData, exerciseData }) {
   const [items, setItems] = useState(getItems);
   const [selected, setSelected] = useState([]);
   const [position, setPosition] = useState(0);
+  const [selectedExercise, setSelectedExercise] = useState(0);
 
+
+  const selectExercies = key => {
+    setSelectedExercise(key)
+  }
+
+  const Arrow = ({ text, className }) => {
+    console.log("text",text)
+    return (
+      <div
+        className={className}
+      >{text}</div>
+    );
+  };
+
+
+  const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
+  const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
 
   const Sectionref = useRef(null)
   useEffect(() => {
@@ -392,10 +433,18 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
           </div>
           
 
-          <div className={classes.sampleImages}>
+          <div>
+            <ScrollMenu
+              data={Menu}
+              arrowLeft={ArrowLeft}
+              arrowRight={ArrowRight}
+              selected={selectedExercise}
+              onSelect={selectExercies}
+            />
             { /* <img src={`${allImg}`} alt="exercises image"></img> */ } 
           </div>
         </section>
+        
         <section className={classes.refrences}>
           <div>
             <Box sx={{fontSize:{md:'40px',lg:"40px",sm:"40px",xs:"25px"},fontWeight:"bolder",textAlign:"center",my:"20px"}}>Reference Clients</Box>
@@ -615,6 +664,7 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
           </Box>
           </div>
         </section>
+        
       </div >
     </div >
   )
