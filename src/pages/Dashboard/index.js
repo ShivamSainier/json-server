@@ -52,6 +52,21 @@ export const Menu = (list) => list.map(el => {
     <div>{el.name}</div>
   );
 });
+const Arrows = () => (
+  <div
+    style={{
+      width: "100%",
+      display: "flex",
+      justifyContent: "center"
+    }}
+  >
+    Some other content
+    <div style={{ marginLeft: "10px", display: "flex" }}>
+      <LeftArrow /> <RightArrow />
+    </div>
+  </div>
+);
+
 
 
 
@@ -60,7 +75,10 @@ function LeftArrow() {
     React.useContext(VisibilityContext);
 
   return (
-    <Box onClick={() => scrollPrev()} sx={{ display: "flex", alignItems: "center", justifyContent: "center", m: 2, color: "#F57059", fontWeight: "bolder",  }}>
+    <Box onClick={() => scrollPrev()} sx={{ "&:hover": {
+        backgroundColor: "#F57059",
+        color:"white"
+      }, display: "flex", alignItems: "center", justifyContent: "center", m: 2, color: "#F57059", fontWeight: "bolder",  }}>
       <FaAngleLeft fontSize="40px" />
     </Box>
   );
@@ -70,7 +88,11 @@ function RightArrow() {
   const { isLastItemVisible, scrollNext } = React.useContext(VisibilityContext);
 
   return (
-    <Box onClick={() => scrollNext()} sx={{ display: "flex", alignItems: "center", justifyContent: "center",m:2,color:"#F57059",fontWeight:"bolder" }}>
+    <Box onClick={() => scrollNext()} sx={{
+      "&:hover": {
+        backgroundColor: "#F57059",
+        color:"white"
+      },display: "flex", alignItems: "center", justifyContent: "center",m:2,color:"#F57059",fontWeight:"bolder" }}>
       <FaAngleRight fontSize="40px" />
     </Box>
   );
@@ -81,7 +103,7 @@ function Card__({img}) {
   return (
     <Card sx={{ height:"350px",margin:3 ,textAlign:"center"}}>
     <Box sx={{ height: '300px', }}>
-      <Box sx={{margin:2,backgroundColor:"white"}}>
+      <Box sx={{margin:2,backgroundColor:"white",}}>
         <img src={img} alt="exercise image" />
       </Box>
       <Box sx={{backgroundColor:"white",textTransform:"uppercase",fontWeight:"bolder"}}>
@@ -454,7 +476,7 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
           
 
           <Box sx={{width:"90%",margin:"auto"}}>
-            <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow} transitionBehavior="smooth" Foote="false">
+            <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow} transitionBehavior="smooth" Foote="false" >
               {exercises_images.map(img=><Card__ img={img} />)}
             </ScrollMenu>
             { /* <img src={`${allImg}`} alt="exercises image"></img> */ } 
@@ -462,7 +484,7 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
         </section>
         
         <section className={classes.refrences}>
-          <div>
+          <div id="refrence_clients">
             <Box sx={{fontSize:{md:'40px',lg:"40px",sm:"40px",xs:"25px"},fontWeight:"bolder",textAlign:"center",my:"20px"}}>Reference Clients</Box>
           </div>
           <div>
