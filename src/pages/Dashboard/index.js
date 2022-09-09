@@ -20,18 +20,10 @@ import exercise5 from "./ExercisesImages/exercise5.png";
 import exercise6 from "./ExercisesImages/exercise6.png";
 import exercise7 from "./ExercisesImages/exercise7.png";
 import exercise8 from "./ExercisesImages/exercise8.png";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 
-const exercises_images = [{
-  name: exercise1,
-  name: exercise2,
-  name: exercise3,
-  name: exercise4,
-  name: exercise5,
-  name: exercise6,
-  name: exercise7,
-  name: exercise8,
-}
+const exercises_images = [exercise1,exercise2,exercise3,exercise4,exercise5,exercise6,exercise7,exercise8,
 ]
 
 const container = {
@@ -54,11 +46,6 @@ const item = {
   }
 };
 
-const getItems = () =>
-  Array(20)
-    .fill(0)
-    .map((_, ind) => ({ id: `element-${ind}` }));
-
 export const Menu = (list) => list.map(el => {
   console.log("list", list);
   return (
@@ -67,37 +54,62 @@ export const Menu = (list) => list.map(el => {
 });
 
 
+
+function LeftArrow() {
+  const { isFirstItemVisible, scrollPrev } =
+    React.useContext(VisibilityContext);
+
+  return (
+    <Box onClick={() => scrollPrev()} sx={{ display: "flex", alignItems: "center", justifyContent: "center", m: 2, color:"#F57059",fontWeight:"bolder"}}>
+      <FaAngleLeft />
+    </Box>
+  );
+}
+
+function RightArrow() {
+  const { isLastItemVisible, scrollNext } = React.useContext(VisibilityContext);
+
+  return (
+    <Box onClick={() => scrollNext()} sx={{ display: "flex", alignItems: "center", justifyContent: "center",m:2,color:"#F57059",fontWeight:"bolder" }}>
+      <FaAngleRight />
+    </Box>
+  );
+};
+
+
+function Card__({img}) {
+  return (
+    <Card sx={{ height:"350px",margin:3 ,textAlign:"center"}}>
+    <Box sx={{ height: '300px', }}>
+      <Box sx={{margin:2,backgroundColor:"white"}}>
+        <img src={img} alt="exercise image" />
+      </Box>
+      <Box sx={{backgroundColor:"white",textTransform:"uppercase",fontWeight:"bolder"}}>
+      image
+        
+      </Box>
+      </Box>
+      </Card>
+  );
+}
+
+const getItems = () =>
+  Array(20)
+    .fill(0)
+    .map((_, ind) => ({ id: `element-${ind}` }));
+
+
+
+
 function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, cardData, userData, fetchExercisesData, exerciseData }) {
-  const [items, setItems] = useState(getItems);
-  const [selected, setSelected] = useState([]);
-  const [position, setPosition] = useState(0);
-  const [selectedExercise, setSelectedExercise] = useState(0);
+  const [items, setItems] = React.useState(getItems);
+  const [selected, setSelected] = React.useState([]);
+  const [position, setPosition] = React.useState(0);
 
 
-  const selectExercies = key => {
-    setSelectedExercise(key)
-  }
 
-  const Arrow = ({ text, className }) => {
-    console.log("text",text)
-    return (
-      <div
-        className={className}
-      >{text}</div>
-    );
-  };
+  const isItemSelected = (id) => !!selected.find((el) => el === id);
 
-
-  const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
-  const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
-
-  const Sectionref = useRef(null)
-  useEffect(() => {
-    fetchUserData();
-    getAllCardData();
-    fetchExercisesData();
-    get_page_data();
-  }, []);
   const handleClick =
     (id) =>
       ({ getItemById, scrollToItem }) => {
@@ -109,7 +121,15 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
             : currentSelected.concat(id)
         );
       };
-  const isItemSelected = (id) => !!selected.find((el) => el === id);
+
+
+  const Sectionref = useRef(null)
+  useEffect(() => {
+    fetchUserData();
+    getAllCardData();
+    fetchExercisesData();
+    get_page_data();
+  }, []);
   const goToSection = () => window.scrollTo({ top: Sectionref.current.offsetTop, behavior: "smooth" })
   return (
     <div>
@@ -434,13 +454,9 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
           
 
           <div>
-            <ScrollMenu
-              data={Menu}
-              arrowLeft={ArrowLeft}
-              arrowRight={ArrowRight}
-              selected={selectedExercise}
-              onSelect={selectExercies}
-            />
+            <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow} transitionBehavior="smooth" Foote="false">
+              {exercises_images.map(img=><Card__ img={img} />)}
+            </ScrollMenu>
             { /* <img src={`${allImg}`} alt="exercises image"></img> */ } 
           </div>
         </section>
@@ -450,14 +466,14 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
             <Box sx={{fontSize:{md:'40px',lg:"40px",sm:"40px",xs:"25px"},fontWeight:"bolder",textAlign:"center",my:"20px"}}>Reference Clients</Box>
           </div>
           <div>
-            <Box sx={{ display: 'flex', width:{md:"80%",lg:"80%"},margin:"auto",flexDirection: { md: 'row', lg: 'row', sm: 'row', xs: 'row' }, justifyContent: { md: 'center', lg: 'space-between', sm: 'space-around', xs: 'center' }, alignItems: 'center',gap:2,flexWrap:'wrap'}}>
+            <Box sx={{ display: 'flex', width:{md:"80%",lg:"80%",sm:"80%"},margin:"auto",flexDirection: { md: 'row', lg: 'row', sm: 'row', xs: 'row' }, justifyContent: { md: 'sapce-around', lg: 'center', sm: 'center', xs: 'center' }, alignItems: 'center',gap:1,flexWrap:'wrap', overflowX: "auto"}}>
             <div>
                
-              <Card sx={{ width: {md:'287px',lg:'287px',sm:'287px',xs:'143px'}, height: {lg:"545px",md:"545px",sm:"545px",xs:'270px'}, backgroundColor: "#F5F5F7" }}>
+              <Card sx={{ width: {md:'200px',lg:'287px',sm:'200px',xs:'143px'}, height: {lg:"545px",md:"420px",sm:"420px",xs:'270px'}, backgroundColor: "#F5F5F7" }}>
                <CardMedia
-                  component="img"
+                 component="img"
                   image="/static/images/cards/contemplative-reptile.jpg"
-                  sx={{height: {md:'287px',lg:'287px',sm:'287px',xs:'143px'}}}
+                  sx={{height: {md:'220px',lg:'287px',sm:'220px',xs:'143px'}}}
 
                 />
                 <CardContent>
@@ -474,8 +490,8 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
                     fontFamily: 'Poppins',
                     fontStyle: "normal",
                     fontWeight: "500",
-                      fontSize: { md: "25px", lg: '25px', sm: '25px', xs: '10px' },
-                    lineHeight: { md: "36px", lg: '36px', sm: '36px', xs: '8px' },
+                      fontSize: { md: "15px", lg: '25px', sm: '15px', xs: '10px' },
+                    lineHeight: { md: "26px", lg: '36px', sm: '26px', xs: '8px' },
                     color: "#222222"
                   }} >
                     Case Study Heading
@@ -485,7 +501,7 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
                     fontStyle: "normal",
                     fontWeight: "400",
                     fontSize: { md: "13px", lg: '13px', sm: '13px', xs: '8px' },
-                    lineHeight: { md: "140%", lg: '140%', sm: '140%', xs: '120%' },
+                    lineHeight: { md: "130%", lg: '140%', sm: '130%', xs: '110%' },
                     letterSpacing: "-0.02em",
                     color: "#444444"
                   }}>
@@ -497,7 +513,7 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
                     fontFamily: 'Poppins',
                     fontStyle: "normal",
                     fontWeight: "400",
-                    fontSize:{ md: "15px", lg: '15px', sm: '15px', xs: '8px' },
+                    fontSize:{ md: "10px", lg: '15px', sm: '10px', xs: '8px' },
                     letterSpacing: "-0.02em",
                     color: "#F15D4A"
                   }}>Read full case study</Typography>
@@ -505,11 +521,11 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
               </Card>
             </div>
             <div>
-              <Card sx={{ width: {md:'287px',lg:'287px',sm:'287px',xs:'143px'}, height: {lg:"545px",md:"545px",sm:"545px",xs:'270px'}, backgroundColor: "#F5F5F7" }}>
+              <Card sx={{ width: {md:'200px',lg:'287px',sm:'200px',xs:'143px'}, height: {lg:"545px",md:"420px",sm:"420px",xs:'270px'}, backgroundColor: "#F5F5F7" }}>
                 <CardMedia
                   component="img"
                   image="/static/images/cards/contemplative-reptile.jpg"
-                  sx={{height: {md:'287px',lg:'287px',sm:'287px',xs:'143px'}}}
+                  sx={{height: {md:'220px',lg:'287px',sm:'220px',xs:'143px'}}}
 
                 />
                 <CardContent>
@@ -526,8 +542,8 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
                     fontFamily: 'Poppins',
                     fontStyle: "normal",
                     fontWeight: "500",
-                      fontSize: { md: "25px", lg: '25px', sm: '25px', xs: '10px' },
-                    lineHeight: { md: "36px", lg: '36px', sm: '36px', xs: '8px' },
+                      fontSize: { md: "15px", lg: '25px', sm: '15px', xs: '10px' },
+                    lineHeight: { md: "26px", lg: '36px', sm: '26px', xs: '8px' },
                     color: "#222222"
                   }} >
                     Case Study Heading
@@ -537,7 +553,7 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
                     fontStyle: "normal",
                     fontWeight: "400",
                     fontSize: { md: "13px", lg: '13px', sm: '13px', xs: '8px' },
-                    lineHeight: { md: "140%", lg: '140%', sm: '140%', xs: '120%' },
+                    lineHeight: { md: "120%", lg: '140%', sm: '120%', xs: '120%' },
                     letterSpacing: "-0.02em",
                     color: "#444444"
                   }}>
@@ -549,7 +565,7 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
                     fontFamily: 'Poppins',
                     fontStyle: "normal",
                     fontWeight: "400",
-                    fontSize:{ md: "15px", lg: '15px', sm: '15px', xs: '8px' },
+                    fontSize:{ md: "10px", lg: '15px', sm: '10px', xs: '8px' },
                     letterSpacing: "-0.02em",
                     color: "#F15D4A"
                   }}>Read full case study</Typography>
@@ -557,11 +573,11 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
               </Card>
             </div>
             <div >
-                <Card sx={{ width: { md: '287px', lg: '287px', sm: '287px', xs: '143px' }, height: { lg: "545px", md: "545px", sm: "545px", xs: '270px' }, backgroundColor: "#F5F5F7" }}>
+                <Card sx={{width: { md: '200px', lg: '287px', sm: '200px', xs: '143px' }, height: { lg: "545px", md: "420px", sm: "420px", xs: '270px' }, backgroundColor: "#F5F5F7" }}>
                  <CardMedia
                   component="img"
                   image="/static/images/cards/contemplative-reptile.jpg"
-                  sx={{height: {md:'287px',lg:'287px',sm:'287px',xs:'143px'}}}
+                  sx={{height: {md:'220px',lg:'287px',sm:'220px',xs:'143px'}}}
 
                 />
                 <CardContent>
@@ -578,8 +594,8 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
                     fontFamily: 'Poppins',
                     fontStyle: "normal",
                     fontWeight: "500",
-                      fontSize: { md: "25px", lg: '25px', sm: '25px', xs: '10px' },
-                    lineHeight: { md: "36px", lg: '36px', sm: '36px', xs: '8px' },
+                      fontSize: { md: "15px", lg: '25px', sm: '15px', xs: '10px' },
+                    lineHeight: { md: "26px", lg: '36px', sm: '26px', xs: '8px' },
                     color: "#222222"
                   }} >
                     Case Study Heading
@@ -589,7 +605,7 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
                     fontStyle: "normal",
                     fontWeight: "400",
                     fontSize: { md: "13px", lg: '13px', sm: '13px', xs: '8px' },
-                    lineHeight: { md: "140%", lg: '140%', sm: '140%', xs: '120%' },
+                    lineHeight: { md: "120%", lg: '140%', sm: '120%', xs: '120%' },
                     letterSpacing: "-0.02em",
                     color: "#444444"
                   }}>
@@ -601,7 +617,7 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
                     fontFamily: 'Poppins',
                     fontStyle: "normal",
                     fontWeight: "400",
-                    fontSize:{ md: "15px", lg: '15px', sm: '15px', xs: '8px' },
+                    fontSize:{ md: "10px", lg: '15px', sm: '10px', xs: '8px' },
                     letterSpacing: "-0.02em",
                     color: "#F15D4A"
                   }}>Read full case study</Typography>
@@ -610,11 +626,11 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
                 
             </div>
             <div>
-              <Card sx={{ width: {md:'287px',lg:'287px',sm:'287px',xs:'143px'}, height: {lg:"545px",md:"545px",sm:"545px",xs:'270px'}, backgroundColor: "#F5F5F7" }}>
+              <Card sx={{ width: {md:'200px',lg:'287px',sm:'200px',xs:'143px'}, height: {lg:"545px",md:"420px",sm:"420px",xs:'270px'}, backgroundColor: "#F5F5F7" }}>
                 <CardMedia
                   component="img"
                   image="/static/images/cards/contemplative-reptile.jpg"
-                  sx={{height: {md:'287px',lg:'287px',sm:'287px',xs:'143px'}}}
+                  sx={{height: {md:'220px',lg:'287px',sm:'220px',xs:'143px'}}}
 
                 />
                 <CardContent>
@@ -631,8 +647,8 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
                     fontFamily: 'Poppins',
                     fontStyle: "normal",
                     fontWeight: "500",
-                      fontSize: { md: "25px", lg: '25px', sm: '25px', xs: '10px' },
-                    lineHeight: { md: "36px", lg: '36px', sm: '36px', xs: '8px' },
+                      fontSize: { md: "15px", lg: '25px', sm: '15px', xs: '10px' },
+                    lineHeight: { md: "26px", lg: '36px', sm: '26px', xs: '8px' },
                     color: "#222222"
                   }} >
                     Case Study Heading
@@ -642,7 +658,7 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
                     fontStyle: "normal",
                     fontWeight: "400",
                     fontSize: { md: "13px", lg: '13px', sm: '13px', xs: '8px' },
-                    lineHeight: { md: "140%", lg: '140%', sm: '140%', xs: '120%' },
+                    lineHeight: { md: "120%", lg: '140%', sm: '142%', xs: '120%' },
                     letterSpacing: "-0.02em",
                     color: "#444444"
                   }}>
@@ -654,7 +670,7 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
                     fontFamily: 'Poppins',
                     fontStyle: "normal",
                     fontWeight: "400",
-                    fontSize:{ md: "15px", lg: '15px', sm: '15px', xs: '8px' },
+                    fontSize:{ md: "10px", lg: '15px', sm: '10px', xs: '8px' },
                     letterSpacing: "-0.02em",
                     color: "#F15D4A"
                   }}>Read full case study</Typography>

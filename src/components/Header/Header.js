@@ -30,7 +30,6 @@ export default function Header() {
             What is Kisok
         </Box>
         <Box
-
             sx={{ color: "#f57059", fontWeight: 600, fontSize: { md: "20px", lg: "20px", sm: "20px", xs: "10px" }, flex:{md: 2,lg: 2,sm: 2,xs: 3}, color:"#F57059"}}
           onClick={() => navigate('PrivacyPolicy')}>
           Our Privacy Policy
