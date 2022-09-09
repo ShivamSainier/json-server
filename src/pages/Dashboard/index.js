@@ -60,8 +60,8 @@ function LeftArrow() {
     React.useContext(VisibilityContext);
 
   return (
-    <Box onClick={() => scrollPrev()} sx={{ display: "flex", alignItems: "center", justifyContent: "center", m: 2, color:"#F57059",fontWeight:"bolder"}}>
-      <FaAngleLeft />
+    <Box onClick={() => scrollPrev()} sx={{ display: "flex", alignItems: "center", justifyContent: "center", m: 2, color: "#F57059", fontWeight: "bolder",  }}>
+      <FaAngleLeft fontSize="40px" />
     </Box>
   );
 }
@@ -71,7 +71,7 @@ function RightArrow() {
 
   return (
     <Box onClick={() => scrollNext()} sx={{ display: "flex", alignItems: "center", justifyContent: "center",m:2,color:"#F57059",fontWeight:"bolder" }}>
-      <FaAngleRight />
+      <FaAngleRight fontSize="40px" />
     </Box>
   );
 };
@@ -453,12 +453,12 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
           </div>
           
 
-          <div>
+          <Box sx={{width:"90%",margin:"auto"}}>
             <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow} transitionBehavior="smooth" Foote="false">
               {exercises_images.map(img=><Card__ img={img} />)}
             </ScrollMenu>
             { /* <img src={`${allImg}`} alt="exercises image"></img> */ } 
-          </div>
+          </Box>
         </section>
         
         <section className={classes.refrences}>
