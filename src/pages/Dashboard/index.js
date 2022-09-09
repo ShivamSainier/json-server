@@ -75,10 +75,7 @@ function LeftArrow() {
     React.useContext(VisibilityContext);
 
   return (
-    <Box onClick={() => scrollPrev()} sx={{ "&:hover": {
-        backgroundColor: "#F57059",
-        color:"white"
-      }, display: "flex", alignItems: "center", justifyContent: "center", m: 2, color: "#F57059", fontWeight: "bolder",  }}>
+    <Box onClick={() => scrollPrev()} sx={{  display: "flex", alignItems: "center", justifyContent: "center", m: 2, color: "#F57059", fontWeight: "bolder",  }}>
       <FaAngleLeft fontSize="40px" />
     </Box>
   );
@@ -89,10 +86,7 @@ function RightArrow() {
 
   return (
     <Box onClick={() => scrollNext()} sx={{
-      "&:hover": {
-        backgroundColor: "#F57059",
-        color:"white"
-      },display: "flex", alignItems: "center", justifyContent: "center",m:2,color:"#F57059",fontWeight:"bolder" }}>
+     display: "flex", alignItems: "center", justifyContent: "center",m:2,color:"#F57059",fontWeight:"bolder" }}>
       <FaAngleRight fontSize="40px" />
     </Box>
   );
