@@ -1,6 +1,7 @@
 import createStyles from '@material-ui/styles/createStyles';
 import makeStyles from '@material-ui/styles/makeStyles';
 
+
 const useStyles = makeStyles(() => createStyles({
   '@global': {
     '*': {
@@ -15,9 +16,9 @@ const useStyles = makeStyles(() => createStyles({
       width: '100%'
     },
     body: {
-      backgroundColor: '#f4f6f8',
+      backgroundColor: '#FFFFFF',
       height: '100%',
-      width: '100%'
+      width: '100%',
     },
     a: {
       textDecoration: 'none'

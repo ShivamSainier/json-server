@@ -7,7 +7,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { auth } from "../../redux/actions";
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
-
+import 'typeface-montserrat';
+import 'typeface-raleway'
 
 export default function Header() {
   const dispatch = useDispatch();
@@ -18,28 +19,25 @@ export default function Header() {
     dispatch(auth.logout());
     toast.success("Logout Successfully", { position: toast.POSITION.BOTTOM_RIGHT, autoClose: 2000 });
     navigate("/login");
-  }
+  };
   return (
-    <Box sx={{width:"100%"}}>
-      <Box sx={{display:"flex",flexDirection:"row",justifyContent:"space-between",width:"80%",margin:"auto",padding:"10px"}}>
-      <Box sx={{ fontStyle: "normal", fontSize: { md: "20px", lg: "20px", sm: "20px", xs: "10px" }, lineHeight: { md: "30px", lg: "30px", sm: "30px", xs: "15px" }, cursor: "pointer", color: "#F57059", fontWeight:"800",flex:{md:3,lg:3,sm:3,xs:1}}} onClick={() => navigate("/app/dashboard")}>
-          TraceLyfe
-      </Box>
-        <Box sx={{ display: "flex", flexDirection: "row", fontSize: { md: "20px", lg: "20px", sm: "20px", xs: "10px" }, lineHeight: { md: "30px", lg: "30px", sm: "30px", xs: "15px" },flex:{md:2,lg:2,sm:2,xs:2} }}>
-          <Box sx={{ fontSize: { md: "20px", lg: "20px", sm: "20px", xs: "10px" }, fontWeight:"800",color:"#F57059",flex:{md:2,lg:2,sm:2,xs:3} }}>
-            What is Kisok
-        </Box>
-        <Box
-            sx={{ color: "#f57059", fontWeight: 600, fontSize: { md: "20px", lg: "20px", sm: "20px", xs: "10px" }, flex:{md: 2,lg: 2,sm: 2,xs: 3}, color:"#F57059"}}
-          onClick={() => navigate('PrivacyPolicy')}>
-          Our Privacy Policy
-        </Box>
-          <Box sx={{ color: "#f57059", fontWeight: 600, fontSize: { md: "20px", lg: "20px", sm: "20px", xs: "10px" }, flex:{md: 1,lg: 1,sm: 2,xs: 1} }}>
-          Team
-        </Box>
+    <Box sx={{backgroundColor:"#FFFFFF"}}>
+      <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width: "90%", margin: "auto", padding: "3px 100px 0px",}}>
+        <Box sx={{ flex: 1, p: 5 }}><img height="44" width="180" src={Logo} /></Box>
+        <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", flex: 5}}>
+          <Box sx={{ p: 5 }}> <Typography color="#425162" fontSize="20px" fontWeight="500" sx={{ cursor: "pointer", fontFamily: "montserrat", '&:hover': {fontWeight:"600"} }}>Products</Typography></Box>
+         
+          <Box sx={{ p: 5, }}><Typography color="#425162" fontSize="20px" fontWeight="500" sx={{ cursor: "pointer", '&:hover': { fontWeight: "600" } }}>Partnership</Typography></Box>
+          <Box sx={{ p: 5 }}><Typography color="#425162" fontSize="20px" fontWeight="500" sx={{ cursor: "pointer", '&:hover': { fontWeight: "600" } }} >Contact us</Typography></Box>
+          <Box sx={{ p: 5 }}><Typography color="#425162" fontSize="20px" fontWeight="500" sx={{ cursor: "pointer", '&:hover': { fontWeight: "600" } }}>Our Partners</Typography></Box>
+          <Box sx={{ width: "23%", height: "50px", backgroundColor:"#0D809F", borderRadius: "40px", display: "flex", justifyContent: "center", alignItems: "center", boxShadow: "2px 5px 10px 0 rgb(0 0 0 / 23%)",cursor:"pointer" }}>
+            <Typography color="white" fontSize="20px" fontWeight="600" fontFamily="montserrat" sx={{ '&:hover': { fontWeight: "700" } }}>Login</Typography>
+            
+          </Box>
+
         </Box>
       </Box>
-    </ Box >
+    </Box>
   )
 
 }

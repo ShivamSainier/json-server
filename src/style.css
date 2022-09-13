@@ -1,11 +1,11 @@
 @font-face {
     font-display: swap;
-    font-family: "Inter";
-    src: local("Inter"), url(./assets/Inter/static/Inter-Regular.ttf) format("truetype");
+    font-family: "Montserrat";
+    src: local("Montserrat"), url(./assets/Inter/static/Inter-Regular.ttf) format("truetype");
 }
 
-*,html,body,div,p,span,h1,h2,h3,h4,h5,h6,blockquote{
-    font-family: Inter !important;
+*,html,body,div,p,span,h1,h2,h3,h4,h5,h6,blockquote,ul,li{
+    font-family: Montserrat !important;
 }
 
 .d-flex{

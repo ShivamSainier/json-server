@@ -26,6 +26,11 @@
     transform-origin: 0%;
 }
 
+.parag{
+    color:red;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
 .mainTitle {
     position: absolute;
     width: 499px;
