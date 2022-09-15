@@ -11,53 +11,52 @@ import background from "../../assets/PartnershipBackground.png";
 
 const PartnershipSection = () => {
   return (
-    <Box sx={{ backgroundImage: `url(${background})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", color: "white",height:"100vh",display:"flex",flexDirection:"column",justifyContent:"center" }}>
+    <Box sx={{ backgroundImage: `url(${background})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", color: "white",display:"flex",flexDirection:"column",justifyContent:"center" }}>
       <Box sx={{ width: "80%", margin: "auto" }}>
-        <Box textAlign="center" padding="10px" margin="20px">
-          <Typography fontSize="44px" fontWeight="600">Partnerships</Typography>
+        <Box textAlign="center" padding="10px" margin="10px">
+          <Typography sx={{ textAlign: "center", p: 2, fontSize: { lg: "44px", md: "33px", sm: "33px", xs: "22px" } }} fontWeight="600">Partnerships</Typography>
         </Box>
-        <Box sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap", gap: 8, justifyContent: "center" }}>
-          <Card sx={{ height: "231px", width: "322px", display: "flex", justifyContent: "center", borderRadius: "8px" }}>
+        <Box sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap", gap: {lg:8,md:6,sm:4,xs:2}, justifyContent: "center" }}>
+          <Card sx={{ height: {lg:'231px',md:'221px',sm:'200px',xs:'120px'}, width: {lg:'322px',md:'312px',sm:'192px',xs:'110px'}, display: "flex", justifyContent: "center", borderRadius: "8px" }}>
             <CardContent sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-              <img src={HIC} alt="Helth insurence Company" />
-              <Typography fontSize="17px" >Health Insurance Company
+              <img src={HIC} alt="Helth insurence Company"  />
+              <Typography fontSize="17px"  sx={{fontSize:{lg:'17px',md:'14px',sm:'8px',xs:'6px'}}}>Health Insurance Company
               </Typography>
             </CardContent>
           </Card>
-          <Card sx={{ height: "231px", width: "322px", display: "flex", justifyContent: "center", borderRadius: "8px" }}>
+          <Card sx={{ height: { lg: '231px', md: '221px', sm: '200px', xs: '120px' }, width: { lg: '322px', md: '312px', sm: '192px', xs: '110px' }, display: "flex", justifyContent: "center", borderRadius: "8px" }}>
             <CardContent sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-              <img src={Location} alt="Retail Location
-" />
-              <Typography fontSize="17px" >Health Insurance Company
+              <img src={Location} alt="Retail Location" />
+              <Typography sx={{ fontSize: { lg: '17px', md: '14px', sm: '12px', xs: '8px' } }} >Health Insurance Company
               </Typography>
             </CardContent>
           </Card>
-          <Card sx={{ height: "231px", width: "322px", display: "flex", justifyContent: "center", borderRadius: "8px" }}>
+          <Card sx={{ height: { lg: '231px', md: '221px', sm: '200px', xs: '120px' }, width: { lg: '322px', md: '312px', sm: '192px', xs: '110px' }, display: "flex", justifyContent: "center", borderRadius: "8px" }}>
             <CardContent sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
               <img src={NGO} alt="NGO" />
-              <Typography fontSize="17px" >Health Insurance Company
+              <Typography sx={{ fontSize: { lg: '17px', md: '14px', sm: '12px', xs: '8px' } }}  >Health Insurance Company
               </Typography>
             </CardContent>
           </Card>
-          <Card sx={{ height: "231px", width: "322px", display: "flex", justifyContent: "center", borderRadius: "8px" }}>
+          <Card sx={{ height: { lg: '231px', md: '221px', sm: '200px', xs: '120px' }, width: { lg: '322px', md: '312px', sm: '192px', xs: '110px' }, display: "flex", justifyContent: "center", borderRadius: "8px" }}>
             <CardContent sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
               <img src={HIC} alt="Helth insurence Company" />
-              <Typography fontSize="17px" >Health Insurance Company
+              <Typography sx={{ fontSize: { lg: '17px', md: '14px', sm: '12px', xs: '8px' } }}>Health Insurance Company
               </Typography>
             </CardContent>
           </Card>
 
-          <Card sx={{ height: "231px", width: "322px", display: "flex", justifyContent: "center", borderRadius: "8px" }}>
+          <Card sx={{ height: { lg: '231px', md: '221px', sm: '200px', xs: '120px' }, width: { lg: '322px', md: '312px', sm: '192px', xs: '110px' }, display: "flex", justifyContent: "center", borderRadius: "8px" }}>
             <CardContent sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
               <img src={SmartCity} alt="Smart City" />
-              <Typography fontSize="17px" >Smart City
+              <Typography sx={{ fontSize: { lg: '17px', md: '14px', sm: '12px', xs: '8px' } }} >Smart City
               </Typography>
             </CardContent>
           </Card>
-          <Card sx={{ height: "231px", width: "322px", display: "flex", justifyContent: "center", borderRadius: "8px" }}>
+          <Card sx={{ height: { lg: '231px', md: '221px', sm: '200px', xs: '120px' }, width: { lg: '322px', md: '312px', sm: '192px', xs: '110px' }, display: "flex", justifyContent: "center", borderRadius: "8px" }}>
             <CardContent sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-              <img src={Panchayat} alt="Grampanchayat" />
-              <Typography fontSize="17px" >Health Insurance Company
+              <img src={Panchayat} alt="Grampanchayat"  />
+              <Typography sx={{ fontSize: { lg: '17px', md: '14px', sm: '12px', xs: '8px' } }}>Health Insurance Company
               </Typography>
             </CardContent>
           </Card>

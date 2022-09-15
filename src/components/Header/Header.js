@@ -22,19 +22,12 @@ export default function Header() {
   };
   return (
     <Box sx={{backgroundColor:"#FFFFFF"}}>
-      <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width: "90%", margin: "auto", padding: "3px 100px 0px",}}>
-        <Box sx={{ flex: 1, p: 5 }}><img height="44" width="180" src={Logo} /></Box>
+      <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width:{lg:'90%',md:'90%',sm:'100%',xs:'100%'}, margin: "auto", padding: "3px 100px 0px",}}>
+        <Box sx={{width:"20%" }}><img src={Logo} style={{width:"100%" ,height:"auto"}} /></Box>
         <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", flex: 5}}>
-          <Box sx={{ p: 5 }}> <Typography color="#425162" fontSize="20px" fontWeight="500" sx={{ cursor: "pointer", fontFamily: "montserrat", '&:hover': {fontWeight:"600"} }}>Products</Typography></Box>
-         
-          <Box sx={{ p: 5, }}><Typography color="#425162" fontSize="20px" fontWeight="500" sx={{ cursor: "pointer", '&:hover': { fontWeight: "600" } }}>Partnership</Typography></Box>
-          <Box sx={{ p: 5 }}><Typography color="#425162" fontSize="20px" fontWeight="500" sx={{ cursor: "pointer", '&:hover': { fontWeight: "600" } }} >Contact us</Typography></Box>
-          <Box sx={{ p: 5 }}><Typography color="#425162" fontSize="20px" fontWeight="500" sx={{ cursor: "pointer", '&:hover': { fontWeight: "600" } }}>Our Partners</Typography></Box>
-          <Box sx={{ width: "23%", height: "50px", backgroundColor:"#0D809F", borderRadius: "40px", display: "flex", justifyContent: "center", alignItems: "center", boxShadow: "2px 5px 10px 0 rgb(0 0 0 / 23%)",cursor:"pointer" }}>
-            <Typography color="white" fontSize="20px" fontWeight="600" fontFamily="montserrat" sx={{ '&:hover': { fontWeight: "700" } }}>Login</Typography>
-            
-          </Box>
-
+          <Box> <Typography color="#425162" fontSize="20px" fontWeight="500" sx={{ fontSize: { lg: '20px', md: '20px', sm: '10px', xs: '5px' }, cursor: "pointer", fontFamily: "montserrat", '&:hover': {fontWeight:"600"} }}>Products</Typography></Box>
+          <Box><Typography color="#425162" fontWeight="500" sx={{ fontSize: { lg: '20px', md: '20px', sm: '10px', xs: '5px' }, cursor: "pointer", '&:hover': { fontWeight: "600", } }}>Partnership</Typography></Box>
+          <Box><Typography color="#425162" fontWeight="500" sx={{ fontSize: { lg: '20px', md: '20px', sm: '10px', xs: '5px' }, cursor: "pointer", '&:hover': { fontWeight: "600" } }} >Contact us</Typography></Box>
         </Box>
       </Box>
     </Box>

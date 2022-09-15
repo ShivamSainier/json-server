@@ -156,7 +156,6 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
       <ProductFeaturesSetion />
       <PartnershipSection />
       <AwardsSection />
-      <OurPartnerSection />
       <ContactUs />        
     </div >
   )

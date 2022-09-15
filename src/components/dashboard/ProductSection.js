@@ -24,7 +24,6 @@ const ProductSection = () => {
 
     function TabPanel(props) {
         const { children, value, index, ...other } = props;
-
         return (
             <div
                 role="tabpanel"
@@ -44,24 +43,16 @@ const ProductSection = () => {
 
   return (
       <Box sx={{backgroundColor:"#FFFFFF"}}>
-          <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: 3, p: 10, backgroundImage: `url(${img})`, backgroundRepeat: "no-repeat", backgroundPosition:"center bottom",backgroundSize:"cover"}}>
-              <Typography fontSize="44px" fontColor="#425162" fontWeight="600">
+          <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: {lg:3,md:3,sm:2,xs:1}, p: {lg:10,md:8,sm:7,xs:5} , backgroundImage: `url(${img})`, backgroundRepeat: "no-repeat", backgroundPosition:"center bottom",backgroundSize:"cover"}}>
+              <Typography sx={{ fontSize: { lg: "44px", md: "33px", sm: "33px", xs: "22px" } }} fontColor="#425162" fontWeight="600">
                   Our Products
               </Typography>
+          <Tabs value={value} onChange={handleChange} textColor="secondry" sx={{ width:{md:"50%",lg:"50%",sm:"100%",xs:"100%"},margin:"auto",display:"flex",}} indicatorColor={""}>
               
-         
-          <Tabs value={value} onChange={handleChange} textColor="secondry" sx={{ width: "36%", margin: "auto", textAlign: "center" ,p:5}} indicatorColor={""}>
-              <Tab label="Health ATM" {...a11yProps(0)} sx={{ backgroundColor: value == 0 ? "#364263" : "transparent", color: value == 0 ? "white" : "#364263", fontSize: "22px", padding: "8px 30px", margin: "0px 10px", borderRadius: "40px", border:3 }} />
-              <Tab label="Health BOX" {...a11yProps(1)} sx={{ backgroundColor: value == 1 ? "#364263" : "transparent", color: value == 1 ? "white" : "#364263", fontSize: "22px", padding: "8px 30px", margin: "0px 10px", borderRadius: "40px",border:3 }}  />
+              <Tab label="Health BOX" {...a11yProps(0)} sx={{ backgroundColor: value == 0 ? "#364263" : "transparent", color: value == 0 ? "white" : "#364263", fontSize: {lg:"22px",md:"18px",sm:"16px",xs:"11px"}, padding: {lg:"8px 30px",md:"6px 28px",sm:"4px 26px",xs:"2px 20px"}, margin: "0px 10px", borderRadius: "40px",border:3 }}  />
               </Tabs>
             </Box>
           <TabPanel value={value} index={0}>
-              <Slide direction="up" timeout={5000}>
-                  <HealthAtm />
-              </Slide>
-             
-          </TabPanel>
-          <TabPanel value={value} index={1}>
               <HealthBox />
               </TabPanel>
         

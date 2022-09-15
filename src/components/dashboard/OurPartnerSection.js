@@ -89,18 +89,18 @@ function Card__({ img }) {
 }
 
 const OurPartnerSection = () => {
-  return (
-      <>
-          <Box sx={{ backgroundImage: `url(${ourPartnerBAckground})`,backgroundPosition:"center",backgroundRepeat:'no-repeat',backgroundSize:"cover",m:2}}>
-          <Box sx={{height:"80vh",display:"flex",flexDirection:"column",justifyContent:"center"}}>
-                  <Typography fontSize="44px" fontWeight="600" color="#425162" textAlign="center">Our Partners</Typography>
-                  <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow} transitionBehavior="smooth">
-                      {partners.map(img => <Card__ img={img} />)}
-                  </ScrollMenu>
-              </Box>
-          </Box>
-      </>
-  )
-}
+    return (
+        <>
+            <Box sx={{ backgroundImage: `url(${ourPartnerBAckground})`, backgroundPosition: "center", backgroundRepeat: 'no-repeat', backgroundSize: "cover", m: 2 }}>
+                <Box sx={{ height: "80vh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                    <Typography fontSize="44px" fontWeight="600" color="#425162" textAlign="center">Our Partners</Typography>
+                    <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow} transitionBehavior="smooth">
+                        {partners.map(img => <Card__ img={img} />)}
+                    </ScrollMenu>
+                </Box>
+            </Box>
+        </>
+    )
+};
 
 export default OurPartnerSection
