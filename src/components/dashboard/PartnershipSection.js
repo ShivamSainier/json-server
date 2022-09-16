@@ -11,12 +11,12 @@ import background from "../../assets/PartnershipBackground.png";
 
 const PartnershipSection = () => {
   return (
-    <Box sx={{ backgroundImage: `url(${background})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", color: "white",display:"flex",flexDirection:"column",justifyContent:"center" }}>
+    <Box sx={{ backgroundImage: `url(${background})`, backgroundRepeat: "no-repeat", backgroundSize: "cover",backgroundPosition:"centerTop", color: "white",display:"flex",flexDirection:"column",justifyContent:"center"}}>
       <Box sx={{ width: "80%", margin: "auto" }}>
         <Box textAlign="center" padding="10px" margin="10px">
           <Typography sx={{ textAlign: "center", p: 2, fontSize: { lg: "44px", md: "33px", sm: "33px", xs: "22px" } }} fontWeight="600">Partnerships</Typography>
         </Box>
-        <Box sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap", gap: {lg:8,md:6,sm:4,xs:2}, justifyContent: "center" }}>
+        <Box sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap", gap: {lg:6,md:6,sm:4,xs:2}, justifyContent: "center",m:5 }}>
           <Card sx={{ height: {lg:'231px',md:'221px',sm:'200px',xs:'120px'}, width: {lg:'322px',md:'312px',sm:'192px',xs:'110px'}, display: "flex", justifyContent: "center", borderRadius: "8px" }}>
             <CardContent sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
               <img src={HIC} alt="Helth insurence Company"  />

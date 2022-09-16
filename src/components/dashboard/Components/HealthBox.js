@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import img from "../../../assets/HealthBox.png";
 import backgroundImage from "../../../assets/HealthAtmBackground.png";
+import "@fontsource/montserrat"; 
 
 const HealthBox = () => {
     const windowSize = window;
@@ -20,13 +21,13 @@ const HealthBox = () => {
                 <Typography sx={{fontSize:{lg:'42px',md:'32px',sm:'26px',xs:'20px',textAlign:{sm:'center',xs:'center'}}}} color="#425162" margin="0px 0px 24px" fontWeight="550">
                     Health Box
                 </Typography>
-                <Typography sx={{ fontSize: { lg:'16px',md:'12px',xs:'10px',sm:'12px'} }} color="#425162" lineHeight="1.44">
+                <Typography sx={{ fontSize: { lg: '16px', md: '12px', xs: '10px', sm: '12px' } }} color="#425162" lineHeight="1.44" fontFamily="montserrat">
                     Portable briefcase-like health kit that can be easily carried by a doctor or primary healthcare professional for door-to-door health checkup visits.
                 </Typography>
                 <ul>
-                    <li><Typography sx={{ fontSize: { lg: '16px', md: '12px', xs: '10px', sm: '12px' } }}   color="#425162" lineHeight="1.44">High-resolution Camera, touch screen & noise-cancelling mic for smooth video consultation with doctors.</Typography></li>
+                    <li><Typography sx={{ fontSize: { lg: '16px', md: '12px', xs: '10px', sm: '12px' } }} color="#425162" lineHeight="1.44" fontFamily="montserrat">High-resolution Camera, touch screen & noise-cancelling mic for smooth video consultation with doctors.</Typography></li>
                     <li><Typography sx={{ fontSize: { lg: '16px', md: '12px', xs: '10px', sm: '12px' } }} color="#425162" lineHeight="1.44">18+ parameters checked in less than 5 minutes.</Typography></li>
-                    <li><Typography sx={{ fontSize: { lg: '16px', md: '12px', xs: '10px', sm: '12px' } }} color="#425162" lineHeight="1.44">Integrated doctor consultation platform with doctor login and patient management.</Typography></li>
+                    <li><Typography sx={{ fontSize: { lg: '16px', md: '12px', xs: '10px', sm: '12px' } }} color="#425162" lineHeight="1.44" fontFamily="montserrat">Integrated doctor consultation platform with doctor login and patient management.</Typography></li>
                 </ul>
             </Box>
         </Box>
