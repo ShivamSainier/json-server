@@ -47,7 +47,7 @@ const ProductSection = () => {
               </Typography>
               <Tabs value={value} onChange={handleChange} textColor="secondry" sx={{ width: { md: "20%", lg: "20%", sm: "30%", xs: "50%",display:'flex' } }} indicatorColor={""}> 
                   <Box>
-                      <Tab label="Health BOX" {...a11yProps(0)} sx={{ backgroundColor: value == 0 ? "#364263" : "transparent", color: value == 0 ? "white" : "#364263", fontSize: { lg: "22px", md: "18px", sm: "16px", xs: "11px" }, padding: { lg: "8px 30px", md: "6px 28px", sm: "4px 26px", xs: "2px 20px" }, margin: "0px 10px", borderRadius: "40px", border: 3 }} />
+                      <Tab label="Health BOX" {...a11yProps(0)} sx={{ backgroundColor: value == 0 ? "#364263" : "transparent", color: value == 0 ? "white" : "#364263", fontSize: { lg: "22px", md: "18px", sm: "16px", xs: "8px" }, padding: { lg: "8px 30px", md: "6px 28px", sm: "4px 26px", xs: "2px 20px" }, margin: "0px 10px", borderRadius: "40px", border: 3 }} />
                   </Box>
               </Tabs>
             </Box>
