@@ -20,8 +20,6 @@ const ProductSection = () => {
             'aria-controls': `simple-tabpanel-${index}`,
         };
     };
-
-
     function TabPanel(props) {
         const { children, value, index, ...other } = props;
         return (
@@ -47,9 +45,10 @@ const ProductSection = () => {
               <Typography sx={{ fontSize: { lg: "44px", md: "33px", sm: "33px", xs: "22px" } }} fontColor="#425162" fontWeight="600">
                   Our Products
               </Typography>
-          <Tabs value={value} onChange={handleChange} textColor="secondry" sx={{ width:{md:"50%",lg:"50%",sm:"100%",xs:"100%"},margin:"auto",display:"flex",}} indicatorColor={""}>
-              
-              <Tab label="Health BOX" {...a11yProps(0)} sx={{ backgroundColor: value == 0 ? "#364263" : "transparent", color: value == 0 ? "white" : "#364263", fontSize: {lg:"22px",md:"18px",sm:"16px",xs:"11px"}, padding: {lg:"8px 30px",md:"6px 28px",sm:"4px 26px",xs:"2px 20px"}, margin: "0px 10px", borderRadius: "40px",border:3 }}  />
+              <Tabs value={value} onChange={handleChange} textColor="secondry" sx={{ width: { md: "20%", lg: "20%", sm: "30%", xs: "50%",display:'flex' } }} indicatorColor={""}> 
+                  <Box>
+                      <Tab label="Health BOX" {...a11yProps(0)} sx={{ backgroundColor: value == 0 ? "#364263" : "transparent", color: value == 0 ? "white" : "#364263", fontSize: { lg: "22px", md: "18px", sm: "16px", xs: "11px" }, padding: { lg: "8px 30px", md: "6px 28px", sm: "4px 26px", xs: "2px 20px" }, margin: "0px 10px", borderRadius: "40px", border: 3 }} />
+                  </Box>
               </Tabs>
             </Box>
           <TabPanel value={value} index={0}>
