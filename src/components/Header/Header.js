@@ -35,7 +35,7 @@ export default function Header() {
         <Box sx={{width:"20%" }}><img src={Logo} style={{width:"100%" ,height:"auto"}} /></Box>
         <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center", flex: 1,}}>
           <Box> <Typography color="#425162" fontSize="20px" fontWeight="500" sx={{ fontSize: { lg: '20px', md: '20px', sm: '10px', xs: '5px' }, cursor: "pointer", fontFamily: "montserrat", '&:hover': { fontWeight: "600" } }} onClick={() => handleClick(650)}>Products</Typography></Box>
-          <Box><Typography onClick={() => handleClick(1350)} color="#425162" fontWeight="500" sx={{ fontSize: { lg: '20px', md: '20px', sm: '10px', xs: '5px' }, cursor: "pointer", '&:hover': { fontWeight: "600", } }} >Partnership</Typography></Box>
+          <Box><Typography onClick={() => handleClick(1350)} color="#425162" fontWeight="500" sx={{ fontSize: { lg: '20px', md: '20px', sm: '10px', xs: '5px' }, cursor: "pointer", '&:hover': { fontWeight: "600", } }} >Features</Typography></Box>
           <Box><Typography onClick={() => handleClick(3000)}  color="#425162" fontWeight="500" sx={{ fontSize: { lg: '20px', md: '20px', sm: '10px', xs: '5px' }, cursor: "pointer", '&:hover': { fontWeight: "600" } }} >Contact us</Typography></Box>
         </Box>
       </Box>
