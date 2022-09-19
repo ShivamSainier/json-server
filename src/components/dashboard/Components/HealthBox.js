@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import img from "../../../assets/healthBox.png";
+import img from "../../../assets/heathBox.png";
 import backgroundImage from "../../../assets/HealthAtmBackground.png";
 import "@fontsource/montserrat"; 
 
