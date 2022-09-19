@@ -20,22 +20,22 @@ const PartnershipSection = () => {
         </Box>
         <Box sx={{ display: "flex", flexDirection: "row", flexWrap: {lg:'no-wrap',md:'no-wrap',sm:'wrap',xs:'wrap'}, gap: {lg:6,md:4,sm:2,xs:1}, justifyContent: "center",m:5 }}>
           <Card sx={{ height: {lg:'231px',md:'221px',sm:'200px',xs:'120px'}, width: {lg:'322px',md:'312px',sm:'192px',xs:'110px'}, display: "flex", justifyContent: "center", borderRadius: "8px" }}>
-            <CardContent sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-              <img src={HIC} alt="Helth insurence Company"  />
+            <CardContent sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}> 
+              <img src={HIC} alt="Helth insurence Company" style={{ width: "100%", height: 'auto' }} />
               <Typography fontSize="17px"  sx={{fontSize:{lg:'17px',md:'14px',sm:'8px',xs:'6px'}}}>Health Insurance Company
               </Typography>
             </CardContent>
           </Card>
           <Card sx={{ height: { lg: '231px', md: '221px', sm: '200px', xs: '120px' }, width: { lg: '322px', md: '312px', sm: '192px', xs: '110px' }, display: "flex", justifyContent: "center", borderRadius: "8px" }}>
             <CardContent sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-              <img src={Landing_Hospital} alt="Retail Location" />
+              <img src={Landing_Hospital} alt="Retail Location" style={{ width: "100%", height: 'auto' }} />
               <Typography sx={{ fontSize: { lg: '17px', md: '14px', sm: '12px', xs: '8px' } }} >Landing Hospital
               </Typography>
             </CardContent>
           </Card>
           <Card sx={{ height: { lg: '231px', md: '221px', sm: '200px', xs: '120px' }, width: { lg: '322px', md: '312px', sm: '192px', xs: '110px' }, display: "flex", justifyContent: "center", borderRadius: "8px" }}>
             <CardContent sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-              <img src={NGO} alt="NGO" />
+              <img src={NGO} alt="NGO" style={{width:"100%",height:'auto'}} />
               <Typography sx={{ fontSize: { lg: '17px', md: '14px', sm: '12px', xs: '8px' } }}  >Government Organization
 
               </Typography>
@@ -43,7 +43,7 @@ const PartnershipSection = () => {
           </Card>
           <Card sx={{ height: { lg: '231px', md: '221px', sm: '200px', xs: '120px' }, width: { lg: '322px', md: '312px', sm: '192px', xs: '110px' }, display: "flex", justifyContent: "center", borderRadius: "8px" }}>
             <CardContent sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-              <img src={SmartCity} alt="Smart City" />
+              <img src={SmartCity} alt="Smart City" style={{ width: "100%", height: 'auto' }} />
               <Typography sx={{ fontSize: { lg: '17px', md: '14px', sm: '12px', xs: '8px' } }} >Smart City
               </Typography>
             </CardContent>

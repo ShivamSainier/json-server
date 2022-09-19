@@ -25,7 +25,6 @@ const HeroSection = () => {
                       <img src={heroImage} height="auto" width="100%" />
                       </Box>
                   </Box>
-                  
               </Box>
           </Box>
           </>
