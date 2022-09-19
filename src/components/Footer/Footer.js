@@ -15,6 +15,9 @@ export default function Footer() {
           <Box>
             <Typography color="#FFFFFF" sx={{ fontSize: { lg: '15px', md: '15px', sm: '8px', xs: '5px' } }} fontWeight="500">Empowering healthcare institutions to create their own comprehensive TeleMedicine Network</Typography>
           </Box>
+          <Box>
+            <Typography color="#FFFFFF" sx={{ fontSize: { lg: '15px', md: '15px', sm: '8px', xs: '5px' } }} fontWeight="500">© 2021 Tracelyfe . All rights reserved</Typography>
+          </Box>
         </Box>
       </Box>
     </Box>
