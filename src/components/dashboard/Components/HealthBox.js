@@ -18,7 +18,7 @@ const HealthBox = () => {
                 <img src={img} alt="img" style={{ width:'100%',height:'auto' }}  />
             </Box>
             <Box sx={{m:{lg:10,md:8,sm:6,xs:5,width:{sm:'100%',xs:'100%'}}}}> 
-                <Typography sx={{fontSize:{lg:'42px',md:'32px',sm:'26px',xs:'24px',textAlign:{sm:'center',xs:'center'}}}} color="#425162" margin="0px 0px 24px" fontWeight="550">
+                <Typography sx={{ fontSize: { lg: '42px', md: '32px', sm: '26px', xs: '24px' }, textAlign: { sm: 'center', xs: 'center' }}}} color="#425162" margin="0px 0px 24px" fontWeight="550">
                     Health Box
                 </Typography>
                 <Typography sx={{ fontSize: { lg: '16px', md: '12px', xs: '12px', sm: '12px' }, lineHeight: { lg: '1.44', md: '1.44', sm: '1.40', xs: '1.10' } }} color="#425162" fontFamily="montserrat">

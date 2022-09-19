@@ -42,11 +42,11 @@ const ProductSection = () => {
   return (
       <Box sx={{backgroundColor:"#FFFFFF"}} id="products">
           <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: {lg:3,md:3,sm:2,xs:1}, p: {lg:10,md:8,sm:7,xs:5} , backgroundImage: `url(${img})`, backgroundRepeat: "no-repeat", backgroundPosition:"center bottom",backgroundSize:"cover"}}>
-              <Typography sx={{ fontSize: { lg: "44px", md: "33px", sm: "33px", xs: "22px" } }} fontColor="#425162" fontWeight="600">
+              <Typography sx={{ fontSize: { lg: "44px", md: "33px", sm: "33px", xs: "28px" } }} fontColor="#425162" fontWeight="600">
                   Our Products
                   {console.log("innerHeight",window.innerHeight)}
               </Typography>
-              <Tabs value={value} onChange={handleChange} textColor="secondry" sx={{ width: { md: "20%", lg: "20%", sm: "30%", xs: "50%",display:'flex' } }} indicatorColor={""}> 
+              <Tabs value={value} onChange={handleChange} textColor="secondry" sx={{ width: { md: "20%", lg: "20%", sm: "30%", xs: "40%",display:'flex' } }} indicatorColor={""}> 
                   <Box>
                       <Tab label="Health BOX" {...a11yProps(0)} sx={{ backgroundColor: "#77C6ED", color:"white", fontSize: { lg: "22px", md: "18px", sm: "16px", xs: "8px" }, padding: { lg: "8px 30px", md: "6px 28px", sm: "4px 26px", xs: "1px 10px" }, margin: "0px 10px", borderRadius: "40px", border: 3 }} />
                   </Box>

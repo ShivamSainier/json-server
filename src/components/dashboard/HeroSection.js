@@ -21,7 +21,7 @@ const HeroSection = () => {
                   </Box>
               </Box>
                   <Box>
-                  <Box sx={{textAlign:"Center",width:{lg:"100%",md:"80%",sm:"50%",xs:"50%"},margin:'auto'}}>
+                  <Box sx={{textAlign:"Center",width:{lg:"100%",md:"80%",sm:"70%",xs:"70%"},margin:'auto'}}>
                       <img src={heroImage} height="auto" width="100%" />
                       </Box>
                   </Box>
