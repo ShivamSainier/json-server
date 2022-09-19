@@ -10,9 +10,10 @@ import Slide from '@mui/material/Slide';
 
 const ProductSection = () => {
     const [value, setValue] = useState(0);
-    const handleChange = (e,newValue) => {
+    const handleChange = (e, newValue) => {
         setValue(newValue);
-    }
+    };
+    console.log("value", value);
 
     function a11yProps(index) {
         return {
@@ -44,17 +45,18 @@ const ProductSection = () => {
           <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: {lg:3,md:3,sm:2,xs:1}, p: {lg:10,md:8,sm:7,xs:5} , backgroundImage: `url(${img})`, backgroundRepeat: "no-repeat", backgroundPosition:"center bottom",backgroundSize:"cover"}}>
               <Typography sx={{ fontSize: { lg: "44px", md: "33px", sm: "33px", xs: "28px" } }} fontColor="#425162" fontWeight="600">
                   Our Products
-                  {console.log("innerHeight",window.innerHeight)}
               </Typography>
-              <Tabs value={value} onChange={handleChange} textColor="secondry" sx={{ width: { md: "20%", lg: "20%", sm: "30%", xs: "40%",display:'flex' } }} indicatorColor={""}> 
-                  <Box>
-                      <Tab label="Health BOX" {...a11yProps(0)} sx={{ backgroundColor: "#77C6ED", color:"white", fontSize: { lg: "22px", md: "18px", sm: "16px", xs: "8px" }, padding: { lg: "8px 30px", md: "6px 28px", sm: "4px 26px", xs: "1px 10px" }, margin: "0px 10px", borderRadius: "40px", border: 3 }} />
-                  </Box>
+              <Tabs value={value} onChange={handleChange} textColor="secondry" sx={{ width: { md: "80%", lg: "80%", sm: "80%", xs: "80%",display:'flex' ,justifyContent:"space-between"},margin:"auto"}} indicatorColor={""}> 
+                  <Tab label="Health BOX" {...a11yProps(0)} sx={{ backgroundColor: value==0?" #36426c":'transparent', color:value==0?"white":"#36426c", fontSize: { lg: "22px", md: "18px", sm: "16px", xs: "8px" }, padding: { lg: "8px 30px", md: "6px 28px", sm: "4px 26px", xs: "1px 10px" }, margin: "0px 10px", borderRadius: "40px", border: 3 }} />
+                  <Tab label="Health ATM" {...a11yProps(1)} sx={{ backgroundColor: value == 1 ? " #36426c" : 'transparent', color: value == 1 ? "white" : "#36426c", fontSize: { lg: "22px", md: "18px", sm: "16px", xs: "8px" }, padding: { lg: "8px 30px", md: "6px 28px", sm: "4px 26px", xs: "1px 10px" }, margin: "0px 10px", borderRadius: "40px", border: 3}} />
               </Tabs>
             </Box>
           <TabPanel value={value} index={0}>
               <HealthBox />
-              </TabPanel>
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+              <HealthAtm />
+          </TabPanel>
         
     </Box>
   )

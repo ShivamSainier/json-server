@@ -88,7 +88,7 @@ const ContactUs = () => {
                 </DialogActions>
             </Dialog>
         <Box sx={{width:"80%",margin:"auto",}}>
-            <Box sx={{ display: "flex", flexDirection: {lg:'row',md:'row',sm:'column',xs:'column'}, justifyContent: "space-around", backgroundImage: `url(${ContactBackground})`,alignItems:"center",backgroundSize:"cover",backgroundRepeat:"no-repeat",borderRadius:"8px",m:4,height:{lg:'100px',md:'100px',sm:'80px',xs:'70px'}}}>
+            <Box sx={{ display: "flex", flexDirection: {lg:'row',md:'row',sm:'column',xs:'column'}, justifyContent: "space-around", backgroundImage: `url(${ContactBackground})`,alignItems:"center",backgroundSize:"cover",backgroundRepeat:"no-repeat",borderRadius:"8px",m:4,height:{lg:'260px',md:'220px',sm:'180px',xs:'100px'}}}>
             <Box>
                     <Typography color="#425162" sx={{ fontSize: { lg: '39px', md: '27px', sm: '18px', xs: '10px', lineHeight: { lg: '1.36', md: '1.36', sm: '1.15', xs: '1.2' }, p: { xs: 2 } } }} fontWeight="600" >Let us bring revolution together!
                     </Typography>

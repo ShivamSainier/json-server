@@ -24,7 +24,8 @@ import PartnershipSection from '../../components/dashboard/PartnershipSection';
 import AwardsSection from '../../components/dashboard/AwardsSection';
 import OurPartnerSection from '../../components/dashboard/OurPartnerSection';
 import ContactUs from "../../components/dashboard/ContactUs";
-import 'typeface-raleway'
+import 'typeface-raleway';
+import HowWeWork from "../../components/dashboard/HowWeWork";
 
 
 const exercises_images = [exercise1,exercise2,exercise3,exercise4,exercise5,exercise6,exercise7,exercise8,
@@ -156,6 +157,7 @@ function Dashboard({ fetchUserData, getAllCardData, get_page_data, pageData, car
       <ProductFeaturesSetion />
       <PartnershipSection />
       <AwardsSection />
+      <HowWeWork />
       <ContactUs />        
     </div >
   )

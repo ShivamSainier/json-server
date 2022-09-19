@@ -3,11 +3,13 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { Box, Typography } from "@material-ui/core";
 import HIC from "../../assets/PartnerImages/HIC.png";
-import SmartCity from "../../assets/PartnerImages/SmartCity.png";
+import SmartCity from "../../assets/smart_city.png";
 import NGO from "../../assets/PartnerImages/NGO.png";
 import Panchayat from "../../assets/PartnerImages/Panchayat.png";
 import Location from "../../assets/PartnerImages/Location.png";
 import background from "../../assets/PartnershipBackground.png";
+import FitnessGedget from "../../assets/Fitness_Gedget.png";
+import Landing_Hospital from "../../assets/Landing_Hospital.png";
 
 const PartnershipSection = () => {
   return (
@@ -26,15 +28,16 @@ const PartnershipSection = () => {
           </Card>
           <Card sx={{ height: { lg: '231px', md: '221px', sm: '200px', xs: '120px' }, width: { lg: '322px', md: '312px', sm: '192px', xs: '110px' }, display: "flex", justifyContent: "center", borderRadius: "8px" }}>
             <CardContent sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-              <img src={Location} alt="Retail Location" />
-              <Typography sx={{ fontSize: { lg: '17px', md: '14px', sm: '12px', xs: '8px' } }} >Health Insurance Company
+              <img src={Landing_Hospital} alt="Retail Location" />
+              <Typography sx={{ fontSize: { lg: '17px', md: '14px', sm: '12px', xs: '8px' } }} >Landing Hospital
               </Typography>
             </CardContent>
           </Card>
           <Card sx={{ height: { lg: '231px', md: '221px', sm: '200px', xs: '120px' }, width: { lg: '322px', md: '312px', sm: '192px', xs: '110px' }, display: "flex", justifyContent: "center", borderRadius: "8px" }}>
             <CardContent sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
               <img src={NGO} alt="NGO" />
-              <Typography sx={{ fontSize: { lg: '17px', md: '14px', sm: '12px', xs: '8px' } }}  >Health Insurance Company
+              <Typography sx={{ fontSize: { lg: '17px', md: '14px', sm: '12px', xs: '8px' } }}  >Government Organization
+
               </Typography>
             </CardContent>
           </Card>

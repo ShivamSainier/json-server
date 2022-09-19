@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import img from "../../../assets/HealthBox.png";
+import img from "../../../assets/healthBox.png";
 import backgroundImage from "../../../assets/HealthAtmBackground.png";
 import "@fontsource/montserrat"; 
 
@@ -14,11 +14,11 @@ const HealthBox = () => {
     console.log("lg\n", lg,"\nsm\n",sm,"\nmd\n",md,"\nxs\n",xs);
     return (
         <Box sx={{ display: "flex", flexDirection: {lg:"row",md:"row",sm:"column",xs:"column"}, width: {lg:'80%',md:'80%',sm:'100%',xs:'100%'}, margin: "auto", justifyContent: "space-around", }}>
-            <Box sx={{backgroundImage: `url(${backgroundImage})`,backgroundSize:"cover",width:{lg:'20%',md:'20%',sm:'40%',xs:'40%'},margin:'auto',}}>
+            <Box sx={{backgroundImage: `url(${backgroundImage})`,backgroundSize:"cover",width:{lg:'40%',md:'40%',sm:'30%',xs:'30%'},margin:'auto',}}>
                 <img src={img} alt="img" style={{ width:'100%',height:'auto' }}  />
             </Box>
             <Box sx={{m:{lg:10,md:8,sm:6,xs:5,width:{sm:'100%',xs:'100%'}}}}> 
-                <Typography sx={{ fontSize: { lg: '42px', md: '32px', sm: '26px', xs: '24px' }, textAlign: { sm: 'center', xs: 'center' }}} color="#425162" margin="0px 0px 24px" fontWeight="550">
+                <Typography sx={{ fontSize: { lg: '42px', md: '32px', sm: '26px', xs: '24px' }, textAlign: { sm: 'center', xs: 'center',lg:'left',md:'right' }}} color="#425162" margin="0px 0px 24px" fontWeight="550">
                     Health Box
                 </Typography>
                 <Typography sx={{ fontSize: { lg: '16px', md: '12px', xs: '12px', sm: '12px' }, lineHeight: { lg: '1.44', md: '1.44', sm: '1.40', xs: '1.10' } }} color="#425162" fontFamily="montserrat">
