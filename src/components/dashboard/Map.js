@@ -32,7 +32,7 @@ const Map = () => {
                     </Box>
                     <Box sx={{display:'flex',flexDirection:{lg:'row',md:'row',sm:'column-reverse',xs:'column-reverse'},justifyContent:'space-around',alignItems:'center'}}>
                         <Box sx={{flex:2,my:{lg:0,md:0,sm:3,xs:3}}}>
-                            <Typography sx={{fontSize:{lg:'22px',md:'20px',sm:'18px',xs:'15px'} ,fontWeight:600}}>floor 9 ,SAS Tower <br />Sector 38 ,GURUGRAM<br /> 122001 </Typography>
+                            <Typography sx={{fontSize:{lg:'22px',md:'20px',sm:'18px',xs:'15px'} ,fontWeight:600}}>9th floor ,SAS Tower <br />Sector 38 ,GURUGRAM<br /> 122001 </Typography>
                         </Box>
                     <Box sx={{flex:{lg:4,md:4,sm:2,xs:2}}}>
                     <iframe
