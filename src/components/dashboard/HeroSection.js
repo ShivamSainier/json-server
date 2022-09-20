@@ -8,9 +8,16 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
+import { motion } from "framer-motion"
+
 
 import Button from '@mui/material/Button';
 
+const animationConfiguration = {
+    initial: { opacity: 0,scale:0.7 },
+    animate: { opacity: 1,scale:1 },
+    exit: { opacity: 0 },
+};
 
 const HeroSection = () => {
     const [open, setOpen] = React.useState(false);
@@ -161,7 +168,12 @@ const HeroSection = () => {
                   </Button>
               </DialogActions>
           </Dialog>
-          <Box sx={{backgroundColor:"#FFFFFF"}}>
+          <Box sx={{ backgroundColor: "#FFFFFF" }}>
+              <motion.div variants={animationConfiguration} initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  transition={{ duration: 0.5 }}
+              >
               <Box sx={{ display: "flex", flexDirection: {lg:"row",md:"row",sm:"column-reverse",xs:"column-reverse"}, width:{md:"80%",lg:"80%",sm:"100%",xs:"100%"}, margin: "auto", backgroundColor: "#FFFFFF" ,justifyContent:{md:'space-around',lg:"space-between",sm:"center",xs:"center",},alignItems:{xs:'center',sm:'center'}}}>
                   <Box sx={{ display: "flex", flexDirection: "column", alignItems: { lg: 'left', md:'left',sm:'center',xs:"center"}}}>
                       <Typography color="#425162" sx={{ fontSize: { lg: "44px", md: "33px", sm: "22px", xs: "15px" } }} fontWeight="600" fontFamily="sans-serif">
@@ -180,6 +192,7 @@ const HeroSection = () => {
                       </Box>
                   </Box>
               </Box>
+              </motion.div>
           </Box>
           </>
   )
