@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 import 'typeface-montserrat';
 import 'typeface-raleway';
 import { Link } from "react-router-dom";
+import Logo1 from "../../assets/LogoSvg.svg";
 
 export default function Header() {
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ export default function Header() {
   return (
     <Box sx={{backgroundColor:"#FFFFFF"}}>
       <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width:{lg:'90%',md:'90%',sm:'100%',xs:'100%'}, margin: "auto", padding: "3px 100px 0px"}}>
-        <Box sx={{width:"20%" }}><img src={Logo} style={{width:"100%" ,height:"auto"}} /></Box>
+        <Box sx={{width:"20%" }}><img src={Logo1} style={{width:"100%" ,height:"auto"}} /></Box>
         <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center", flex: 1,}}>
           <Box> <Typography color="#425162" fontSize="20px" fontWeight="500" sx={{ fontSize: { lg: '20px', md: '20px', sm: '10px', xs: '5px' }, cursor: "pointer", fontFamily: "montserrat", '&:hover': { fontWeight: "600" } }} onClick={() => handleClick(650)}>Products</Typography></Box>
           <Box><Typography onClick={() => handleClick(1350)} color="#425162" fontWeight="500" sx={{ fontSize: { lg: '20px', md: '20px', sm: '10px', xs: '5px' }, cursor: "pointer", '&:hover': { fontWeight: "600", } }} >Features</Typography></Box>
