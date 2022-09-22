@@ -56,7 +56,7 @@ const ProductSection = () => {
               <Typography sx={{ fontSize: { lg: "44px", md: "33px", sm: "33px", xs: "28px" } }} fontColor="#425162" fontWeight="600">
                   Our Products
               </Typography>
-              <Tabs value={value} onChange={handleChange} textColor="secondry" sx={{ width: { md: "80%", lg: "80%", sm: "80%", xs: "80%",display:'flex' ,justifyContent:"space-between"},width:{lg:'80%',md:'30%',sm:'35%',xs:'35%'},margin:"auto"}} indicatorColor={""}> 
+              <Tabs value={value} onChange={handleChange} textColor="secondry" sx={{ width: { md: "80%", lg: "80%", sm: "80%", xs: "80%",display:'flex' ,justifyContent:"space-between"},width:{lg:'80%',md:'90%',sm:'80%',xs:'75%'},margin:"auto"}} indicatorColor={""}> 
                   <Tab label="Health BOX" {...a11yProps(0)} sx={{ backgroundColor: value==0?" #36426c":'transparent', color:value==0?"white":"#36426c", fontSize: { lg: "22px", md: "18px", sm: "16px", xs: "8px" }, padding: { lg: "8px 30px", md: "6px 28px", sm: "4px 26px", xs: "1px 10px" }, margin: "0px 10px", borderRadius: "40px", border: 3 }} />
                   </Tabs>
               </motion.div>
