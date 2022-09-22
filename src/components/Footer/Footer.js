@@ -171,7 +171,7 @@ export default function Footer() {
           </Box>
           <Box sx={{display:'flex',flexDirection:{lg:'row',md:'row',sm:'column',xs:'column'},justifyContent:'space-around'}}> 
               <Typography color="#FFFFFF" sx={{ fontSize: { lg: '15px', md: '15px', sm: '8px', xs: '5px' }, mx: 2, borderBottom: "0.5px solid white", cursor: 'pointer' }} onClick={handleClickOpen} fontWeight="500"> Privacy & Cookies policy</Typography>
-            <Typography color="#FFFFFF" sx={{ fontSize: { lg: '15px', md: '15px', sm: '8px', xs: '5px' } }} fontWeight="500">© 2021 Tracelyfe . All rights reserved</Typography>
+              <Typography color="#FFFFFF" sx={{ fontSize: { lg: '15px', md: '15px', sm: '8px', xs: '5px' } }} fontWeight="500">© 2021 Tracelyfe . Powered by <a href="https://racloop.com/" style={{color:'#ffffff',textDecoration:'underline'}}>Racloop</a> All rights reserved</Typography>
           </Box>
         </Box>
     </Box>
