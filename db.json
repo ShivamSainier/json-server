@@ -1,0 +1,123 @@
+{
+    "products":[
+        {
+            "id":1,
+            "title":"product1",
+            "price":2000,
+            "description":"this is desc about prod-1",
+            "category":{
+                "title":"book"
+            }
+        },{
+            "id": 2,
+            "title": "product3",
+            "price": 2000,
+            "description": "this is desc about prod-2",
+            "category": {
+                "title": "book"
+            }
+        },{
+            "id": 3,
+            "title": "product3",
+            "price": 2400,
+            "description": "this is desc about prod-3",
+            "category": {
+                "title": "kitchen"
+            }
+        },{
+            "id": 4,
+            "title": "product4",
+            "price": 1000,
+            "description": "this is desc about prod-4",
+            "category": {
+                "title": "book"
+            }
+        },{
+            "id": 5,
+            "title": "product5",
+            "price": 2000,
+            "description": "this is desc about prod-5",
+            "category": {
+                "title": "electronics"
+            }
+        },{
+            "id": 6,
+            "title": "product6",
+            "price": 909200,
+            "description": "this is desc about prod-6",
+            "category": {
+                "title": "kitchen"
+            }
+        },{
+            "id": 7,
+            "title": "product7",
+            "price": 7900,
+            "description": "this is desc about prod-7",
+            "category": {
+                "title": "book"
+            }
+        },{
+            "id": 8,
+            "title": "product8",
+            "price": 20090,
+            "description": "this is desc about prod-8",
+            "category": {
+                "title": "book"
+            }
+        },{
+            "id": 9,
+            "title": "product9",
+            "price": 9000,
+            "description": "this is desc about prod-9",
+            "category": {
+                "title": "electronics"
+            }
+        },{
+            "id": 10,
+            "title": "product10",
+            "price": 10000,
+            "description": "this is desc about prod-10",
+            "category": {
+                "title": "electronics"
+            }
+        }
+    ],
+    "reviews":[
+        {
+            "id":1,
+            "rating":3,
+            "comment":"Review 1 for product1",
+            "productId":1
+        },
+        {
+            "id": 2,
+            "rating":7,
+            "comment": "Review 2 for product8",
+            "product": 1
+        },
+        {
+            "id": 3,
+            "rating": 8,
+            "comment": "Review 3 for product2",
+            "productId": 1
+        },
+        {
+            "id": 4,
+            "rating": 2,
+            "comment": "Review 4 for product5",
+            "product": 1
+        },
+        {
+            "id": 5,
+            "rating": 9,
+            "comment": "Review 5 for product6",
+            "product": 1
+        },
+        {
+            "id": 6,
+            "rating": 10,
+            "comment": "Review 6 for product7",
+            "product": 1
+        }
+    ]
+}
